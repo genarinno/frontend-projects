@@ -1,0 +1,170 @@
+// Forms
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+.form-control::-moz-placeholder {
+	color: $goo-placeholder;
+	@include opacity(1);
+}
+.form-control {
+	@include transition(all 0.3s linear);
+	&:-moz-placeholder,
+	&:-ms-input-placeholder {
+		color: $goo-placeholder;
+		@include opacity(1);
+	}
+	&.error {
+		color: $goo-danger;
+		border-color: $goo-danger;
+	}
+	&:focus {
+		+ .input-group-addon {
+			background-color: $white;
+			border-color: $border-color;
+		}
+		~ .input-group-addon {
+			background-color: $white;
+			border-color: $border-color;
+		}
+	}
+	&.valid:focus {
+		border-color: $goo-success;
+		color: $goo-success;
+	}
+}
+.form-control::-webkit-input-placeholder {
+	color: $goo-default-inverse;
+	@include opacity(1);
+}
+.input-group-addon {
+	background-color: $white;
+	border: $border-thin $border-solid $border-color;
+	border-radius: 4px;
+	@include transition(all 0.3s linear);
+	&:first-child {
+		border-right: 0 none;
+	}
+	&:last-child {
+		border-left: 0 none;
+	}
+}
+.has-success {
+	.form-control {
+		border-color: $border-color;
+		box-shadow: none;
+		border-color: $goo-success;
+		color: $goo-success;
+		&:focus {
+			border-color: $border-color;
+			box-shadow: none;
+		}
+	}
+	.form-control-feedback {
+		border-color: $goo-success;
+		color: $goo-success;
+	}
+}
+.has-error {
+	.form-control {
+		border-color: $border-color;
+		box-shadow: none;
+		color: $goo-danger;
+		border-color: $goo-danger;
+		&:focus {
+			border-color: $border-color;
+			box-shadow: none;
+		}
+	}
+	.form-control-feedback {
+		color: $goo-danger;
+		border-color: $goo-danger;
+	}
+}
+.input-group-btn {
+	&:first-child > {
+		.btn {
+			border-right: 0 none;
+			&:not(:first-child) {
+				border-left: 0 none;
+			}
+		}
+		.dropdown-toggle {
+			border-right: 0 none;
+		}
+	}
+	&:last-child > {
+		.btn {
+			border-left: 0 none;
+			&:not(:last-child):not(.dropdown-toggle) {
+				border-right: 0 none;
+			}
+		}
+		.dropdown-toggle {
+			border-left: 0 none;
+		}
+	}
+}
+.form-control[disabled],
+.form-control[readonly] {
+	background-color: $goo-default;
+	color: $body-color;
+	cursor: not-allowed;
+}
+.label {
+	color: $body-color;
+	background-color: $white;
+	padding: 0.2em 0.6em 0.2em;
+	border: $border-thin $border-solid $body-color;
+	border-radius: $border-base;
+	font-size: $font-size-small;
+	&.label-fill {
+		color: $white;
+	}
+}
+.input-group .form-control {
+	&:first-child {
+		border-right: 0 none;
+	}
+	&:last-child {
+		border-left: 0 none;
+	}
+}
+fieldset[disabled] .form-control {
+	background-color: $goo-default;
+	color: $body-color;
+	cursor: not-allowed;
+}
+.label-default.label-fill {
+	background-color: $body-color;
+}
+
+// Font Awesome icons
+#Facebook {
+	.form-control-feedback {
+		.fa-facebook {
+			color: $goo-facebook;
+		}
+	}
+}
+#Twitter {
+	.form-control-feedback {
+		.fa-twitter {
+			color: $goo-twitter;
+		}
+	}
+}
+#Google {
+	.form-control-feedback {
+		.fa-google {
+			color: $goo-google;
+		}
+	}
+}
+#Github {
+	.form-control-feedback {
+		.fa-github {
+			color: $goo-github;
+		}
+	}
+}

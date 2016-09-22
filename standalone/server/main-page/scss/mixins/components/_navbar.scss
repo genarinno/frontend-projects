@@ -1,0 +1,13 @@
+// Navbar
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@mixin navbar-vertical-align($element-height) {
+  margin-top: (($navbar-height - $element-height) / 2);
+  margin-bottom: (($navbar-height - $element-height) / 2);
+}
+
+@mixin nav-divider($border-color) {
+  background-color: $border-color;
+}

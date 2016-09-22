@@ -1,0 +1,11 @@
+// Opacity
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
+}

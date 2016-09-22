@@ -1,0 +1,90 @@
+// Preview
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+.header {
+	background-position: center center;
+	background-size: cover;
+	padding: 0;
+	border: 0;
+	@include border-top-radius($border-radius-base);
+	
+	@media (max-width: 767px) {
+		height: 130px;
+	}
+	
+	@media (min-width: 768px) {
+		height: 410px;
+	}
+	
+	@media (max-width: 767px) {
+		.header-container {
+			display: none;
+		}
+	}
+	
+	@media (min-width: 1920px) {
+		height: 410px;
+	}
+}
+
+
+@each $color in $colors-list {
+	.header-filter-#{nth($color,1)} {
+		background-color: #{nth($color,2)};
+		position: relative;
+		&:before {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			display: block;
+			left: 0;
+			top: 0;
+			content: "";
+		}
+		&:after {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			display: block;
+			left: 0;
+			top: 0;
+			content: "";
+		}
+		.container {
+			z-index: 2;
+			position: relative;
+		}
+	}
+}
+
+.wrapper {
+	@media (max-width: 767px){
+		width: 90%;
+		margin: 0 auto;
+	}
+	
+	@media (min-width: 768px) {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+}
+.preview {
+	background: $white;
+	position: relative;
+	z-index: 3;
+}
+.preview-inner {
+	margin: -60px 30px 30px;
+	@include border-radius($border-radius-base);
+	@include box-shadow($box-shadow);
+}
+@media(max-width: 768px) {
+	.preview-inner {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

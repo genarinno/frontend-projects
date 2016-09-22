@@ -1,0 +1,135 @@
+// Variables
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+// Colors
+//
+// Light / dark
+$white: #ffffff !default;
+$black: #000000 !default;
+
+$goo-darker: #111111 !default;
+$goo-dark: #222222 !default;
+$goo: #333333 !default;
+$goo-light: #818a91 !default;
+$goo-lighter: #eceeef !default;
+$goo-lightest: #f7f7f9 !default;
+
+$goo-primary: #1b95e0 !default;
+$goo-primary-inverse: $white !default;
+$goo-secondary: #F20583 !default;
+$goo-secondary-inverse: $white !default;
+$goo-tertiary: #1A9299 !default;
+$goo-tertiary-inverse: $white !default;
+$goo-quaternary: #364559 !default;
+$goo-quaternary-inverse: $white !default;
+
+$goo-default: #f8f8f8 !default;
+$goo-default-inverse: #777777 !default;
+$goo-inverse: #222222 !default;
+$goo-inverse-inverse: lighten($goo-light, 15%) !default;
+
+$goo-light: $goo-lightest !default;
+$goo-light-inverse: $goo-dark !default;
+
+$goo-success: #5cb85c !default;
+$goo-success-inverse: $white !default;
+$goo-info: #5bc0de !default;
+$goo-info-inverse: $white !default;
+$goo-warning: #f0ad4e !default;
+$goo-warning-inverse: $white !default;
+$goo-danger: #d9534f !default;
+$goo-danger-inverse: $white !default;
+
+
+// Social
+$goo-facebook: #3a5795 !default;
+$goo-facebook-inverse: $white !default;
+$goo-twitter: #5aadec !default;
+$goo-twitter-inverse: $white !default;
+$goo-google: #da4a39 !default;
+$goo-google-inverse: $white !default;
+$goo-github: #5c417e !default;
+$goo-github-inverse: $white !default;
+
+$goo-placeholder: #999999 !default;
+
+
+// Colors list
+$colors-list: (primary $goo-primary $goo-primary-inverse) 	(secondary $goo-secondary $goo-secondary-inverse) 	(tertiary $goo-tertiary $goo-tertiary-inverse) 	(quaternary $goo-quaternary $goo-quaternary-inverse) 	(inverse $goo-inverse $goo-inverse-inverse)	(default $goo-default $goo-default-inverse) (info $goo-info $goo-info-inverse) (success $goo-success $goo-success-inverse) (warning $goo-warning $goo-warning-inverse) (danger $goo-danger $goo-danger-inverse);
+
+
+// Body
+$body-bg: $white !default;
+$body-bg-reverse: $goo-darker !default;
+$body-color: $goo-dark !default;
+$body-color-reverse: $white !default;
+
+
+// Typography
+$font-family-sans-serif: 'Lato', sans-serif !default;
+$font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+$font-family-awesome: FontAwesome !default;
+
+$font-size-root: 14px !default;
+$font-size-base: $font-size-root !default;
+
+$font-size-large: ceil(($font-size-base * 1.25)) !default;
+$font-size-small: ceil(($font-size-base * 0.85)) !default;
+
+$font-weight-light: 300 !default;
+$font-weight-base: 400 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+
+// Borders
+//
+// ##
+$border-thin: 1px !default;
+$border-base: 3px !default;
+$border-thick: 5px !default;
+
+
+// Border style
+$border-solid: solid !default;
+$button-border-style: $border-solid !default;
+$border-dashed: dashed !default;
+$border-dotted: dotted !default;
+
+
+// Border radius
+$border-radius-circle: 50% !default;
+$border-radius-round: 30px !default;
+$border-radius: 5px !default;
+$border-radius-base: $border-radius !default;
+
+
+// Border color
+$border-color: #e2e2e2 !default;
+
+
+// Shadows
+$box-shadow: 0 6px 12px rgba(0,0,0,.175) !default;
+$text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
+
+
+// Select
+//
+// ##
+$color-red-error: rgb(185, 74, 72) !default;
+$color-grey-arrow: rgba(204, 204, 204, 0.2) !default;
+$width-default: 220px !default;
+$zindex-select-dropdown: 1060 !default;
+
+
+// Mixins
+//
+// Transition
+$transition-time: 0.5s !default;
+$transition-timing-function-l: linear !default;
+$transition-timing-function-eo: ease-out !default;
+$transition-timing-function-eio: ease-in-out !default;

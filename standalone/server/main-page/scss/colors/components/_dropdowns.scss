@@ -1,0 +1,33 @@
+// Dropdowns
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+.dropdown-menu {
+  @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+
+  // Dividers (basically an hr) within the dropdown
+  .divider,
+  .dropdown-header {
+    @include nav-divider($border-color);
+  }
+}
+
+// Hover/Focus state
+.dropdown-menu > li > a {
+  &:hover,
+  &:focus {
+    color: $body-color;
+    background-color: darken($goo-default,5%);
+  }
+}
+
+// Active state
+.dropdown-menu > .active > a {
+  &,
+  &:hover,
+  &:focus {
+    color: $body-color;
+    background-color: darken($goo-default,5%);
+  }
+}

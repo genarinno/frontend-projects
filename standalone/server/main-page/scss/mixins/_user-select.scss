@@ -1,0 +1,11 @@
+// User select
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+	-moz-user-select: $select;
+	-ms-user-select: $select;
+	user-select: $select;
+}

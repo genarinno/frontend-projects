@@ -1,0 +1,1153 @@
+// Navbars
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+// Wrapper and base class
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+  position: relative;
+  min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  margin-bottom: $navbar-margin-bottom;
+  border: $border-thin $border-solid transparent;
+  @include transition(all $transition-time $transition-timing-function-eo);
+  // Prevent floats from breaking the navbar
+  @include clearfix;
+
+  @media (min-width: 768px) {
+    @include border-radius($navbar-border-radius);
+  }
+}
+
+
+// Navbar heading
+//
+// Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
+// styling of responsive aspects.
+
+.navbar-header {
+  @include clearfix;
+
+  @media (min-width: 768px) {
+    float: left;
+  }
+}
+
+
+// Navbar collapse (body)
+//
+// Group your navbar content into this for easy collapsing and expanding across
+// various device sizes. By default, this content is collapsed when <768px, but
+// will expand past that for a horizontal display.
+//
+// To start (on mobile devices) the navbar links, forms, and buttons are stacked
+// vertically and include a `max-height` to overflow in case you have too much
+// content for the user's viewport.
+
+.navbar-collapse {
+  overflow-x: visible;
+  padding-right: $navbar-padding-horizontal;
+  padding-left:  $navbar-padding-horizontal;
+  border-top: $navbar-border $border-solid transparent;
+  -webkit-overflow-scrolling: touch;
+  @include box-shadow(inset 0 1px 0 rgba(255,255,255,.1));
+  @include clearfix;
+
+  &.in {
+    overflow-y: auto;
+  }
+
+  @media (min-width: 768px) {
+    width: auto;
+    border-top: 0;
+    @include box-shadow(none);
+
+    &.collapse {
+      display: block !important;
+      height: auto !important;
+      padding-bottom: 0; // Override default setting
+      overflow: visible !important;
+    }
+
+    &.in {
+      overflow-y: visible;
+    }
+
+    // Undo the collapse side padding for navbars with containers to ensure
+    // alignment of right-aligned contents.
+    .navbar-fixed-top &,
+    .navbar-static-top &,
+    .navbar-fixed-bottom & {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  .navbar-collapse {
+    max-height: $navbar-collapse-max-height;
+
+    @media (max-device-width: 480px) and (orientation: landscape) {
+      max-height: $navbar-landscape-collapse-height;
+    }
+  }
+}
+
+
+// Both navbar header and collapse
+//
+// When a container is present, change the behavior of the header and collapse.
+
+.container,
+.container-fluid {
+  > .navbar-header,
+  > .navbar-collapse {
+    margin-right: -$navbar-padding-horizontal;
+    margin-left:  -$navbar-padding-horizontal;
+
+    @media (min-width: 768px) {
+      margin-right: 0;
+      margin-left:  0;
+    }
+  }
+}
+
+
+//
+// Navbar alignment options
+//
+// Display the navbar across the entirety of the page or fixed it to the top or
+// bottom of the page.
+
+// Static top (unfixed, but 100% wide) navbar
+.navbar-static-top {
+  z-index: $zindex-navbar;
+  border-width: 0 0 1px;
+
+  @media (min-width: 768px) {
+    @include border-radius(0);
+  }
+}
+
+// Fix the top/bottom navbars when screen real estate supports it
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+
+  // Undo the rounded corners
+  @media (min-width: 768px) {
+    @include border-radius(0);
+  }
+}
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+}
+.navbar-fixed-bottom {
+  bottom: 0;
+  margin-bottom: 0; // override .navbar defaults
+  border-width: 1px 0 0;
+}
+
+
+// Brand/project name
+
+.navbar-brand {
+  float: left;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  font-size: $font-size-large;
+  line-height: $line-height-computed;
+  height: $navbar-height;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  > img {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+      margin-left: -$navbar-padding-horizontal;
+    }
+  }
+}
+
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: $navbar-padding-horizontal;
+  padding: 9px 10px;
+  background-color: transparent;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: none;
+  @include border-radius($border-radius-base);
+  @include navbar-vertical-align($navbar-vertical-align);
+
+  // We remove the `outline` here, but later compensate by attaching `:hover`
+  // styles to `:focus`.
+  &:focus,
+  &:hover,
+	&:focus {
+		background-color: transparent !important;
+    outline: 0;
+	}
+
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    @include border-radius(1px);
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+  
+  .icon-bar-top,
+	.icon-bar-middle,
+	.icon-bar-bottom, {
+		background-color: $navbar-icon-hamburger-color;
+		margin-right: -10px;
+	}
+	.icon-bar {
+		@include transition(all $transition-time $transition-timing-function-eio);
+	}
+	.icon-bar-top {
+		@include opacity(0);
+	}
+	.icon-bar-middle {
+		@include opacity(1);
+	}
+	.icon-bar-bottom {
+		@include opacity(0);
+	}
+	&.collapsed .icon-bar-top {
+		@include opacity(1);
+	}
+	&.collapsed .icon-bar-middle {
+		@include opacity(1);
+	}
+	&.collapsed .icon-bar-bottom {
+		@include opacity(1);
+	}
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+
+// Navbar nav links
+//
+// Builds on top of the `.nav` components with its own modifier class to make
+// the nav the full height of the horizontal nav (above 768px).
+
+.navbar-nav {
+  margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
+
+  > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: $line-height-computed;
+  }
+
+  @media (max-width: 767px) {
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      @include box-shadow(none);
+      > li > a,
+      .dropdown-header {
+	      font-weight: $font-weight-light !important;
+        padding: 5px 15px 5px 25px;
+      }
+      > li > a {
+        line-height: $line-height-computed;
+        &:hover,
+        &:focus {
+          background-image: none;
+        }
+      }
+    }
+  }
+
+  // Uncollapse the nav
+  @media (min-width: 768px) {
+    float: left;
+    margin: 0;
+    > li {
+      float: left;
+      > a {
+        padding-top: $navbar-padding-vertical;
+        padding-bottom: $navbar-padding-vertical;
+      }
+    }
+  }
+}
+
+
+// Navbar form
+.navbar-form {
+  margin-left: -$navbar-padding-horizontal;
+  margin-right: -$navbar-padding-horizontal;
+  padding: 10px $navbar-padding-horizontal;
+  border-top: $border-thin $border-solid transparent;
+  border-bottom: $border-thin $border-solid transparent;
+  @include box-shadow(inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1));
+
+  // Mixin behavior for optimum display
+  @media (min-width: 480px) {
+    .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+    .form-control {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+    }
+    .form-control-static {
+      display: inline-block;
+    }
+    .input-group {
+      display: inline-table;
+      vertical-align: middle;
+      .input-group-addon,
+      .input-group-btn,
+      .form-control {
+        width: auto;
+      }
+    }
+    .input-group > .form-control {
+      width: 100%;
+    }
+    .control-label {
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+    .radio,
+    .checkbox {
+      display: inline-block;
+      margin-top: 0;
+      margin-bottom: 0;
+      vertical-align: middle;
+
+      label {
+        padding-left: 0;
+      }
+    }
+    .radio input[type="radio"],
+    .checkbox input[type="checkbox"] {
+      position: relative;
+      margin-left: 0;
+    }
+    .has-feedback .form-control-feedback {
+      top: 0;
+    }
+  }
+
+  .form-group {
+    @media (max-width: 767px) {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Vertically center in expanded, horizontal navbar
+  @include navbar-vertical-align($input-height-base);
+
+  // Undo 100% width for pull classes
+  @media (min-width: 768px) {
+    width: auto;
+    border: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    @include box-shadow(none);
+  }
+  
+  // Search
+	input[type=expand-search] {
+		color: $goo-placeholder;
+		outline: none;
+		-webkit-appearance: textfield;
+		-webkit-box-sizing: content-box;
+		font-family: inherit;
+		background: $input-bg;
+		border: $border-thin $border-solid $border-color;
+		width: 55px;
+		padding: 6px 12px;
+		@include border-radius($border-radius-base);
+		@include transition(all $transition-time $transition-timing-function-eio);
+	}
+	input[type=expand-search]:focus {
+		width: 150px;
+		background-color: $input-bg;
+		border-color: $input-border-color;
+	}
+	
+	.btn-goo-search {
+		background-color: $input-bg;
+		color: lighten($body-color, 50%) !important;
+		border: $border-thin $border-solid $border-color;
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		border-left: 0;
+		height: 34px;
+		padding: 6px 12px;
+		font-size: $font-size-base;
+		@include border-radius($border-radius-base);
+		@include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+	}
+}
+
+
+// Dropdown menus
+
+// Menu position and menu carets
+.navbar-nav > li > .dropdown-menu,
+.navbar-nav > li > .dropdown-submenu {
+  margin-top: 0;
+  @include border-radius($border-radius-base);
+}
+@media (max-width: 767px) {
+	.navbar-nav {
+		> li {
+			border-bottom: $border-thin $border-solid $border-color;
+		}
+		.caret {
+			float: right;
+			margin-top: 7px;
+			margin-right: 7px;
+		}
+		&.navbar-left,
+		&.navbar-right {
+			.dropdown,
+			.dropdown-menu {
+				text-align: left !important;
+			}
+			.dropdown-submenu {
+				text-align: left !important;
+				position: relative;
+				&:hover {
+					> .dropdown-menu {
+						display: block !important;
+						text-align: left !important;
+					}
+				}
+				&.pull-left {
+					> .dropdown-menu {
+						left: -100%;
+					}
+				}
+				> .dropdown-menu {
+					left: 100%;
+				}
+				> a:after {
+					content: "";
+					float: right !important;
+					display: inline-block;
+				  width: 0;
+				  height: 0;
+				  margin-left: 2px;
+				  vertical-align: middle;
+				  border-top: $caret-width-base $border-dashed !important;
+				  border-top: $caret-width-base $border-solid \9 !important; // IE8
+				  border-right: $caret-width-base $border-solid transparent !important;
+				  border-left: $caret-width-base $border-solid transparent !important;
+				  margin-right: 7px !important;
+				}
+				> .open .dropdown {
+					> li > a:after {
+						border-top: 0 !important;
+						border-bottom: $caret-width-base $border-dashed !important;
+						border-bottom: $caret-width-base $border-solid \9 !important; // IE8
+					}
+				}
+			}
+		}
+	}
+}
+
+// Menu position and menu caret support for dropups via extra dropup class
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  margin-bottom: 0;
+  @include border-top-radius($navbar-border-radius);
+  @include border-bottom-radius(0);
+}
+
+
+// Buttons in navbars
+//
+// Vertically center a button within a navbar (when *not* in a form).
+
+.navbar-btn {
+	margin: 0 5px;
+  @include navbar-vertical-align($input-height-base);
+
+  &.btn-sm {
+    @include navbar-vertical-align($input-height-small);
+  }
+  &.btn-xs {
+    @include navbar-vertical-align(22);
+  }
+  .fa,
+  .pe {
+	  margin-right: 5px;
+  }
+  @media (max-width: 767px) {
+	  width: 98%;
+	  @include navbar-vertical-align(none);
+	  .fa {
+		  display: none;
+	  }
+  }
+}
+
+
+// Text in navbars
+//
+// Add a class to make any element properly align itself vertically within the navbars.
+
+.navbar-text {
+  @include navbar-vertical-align($line-height-computed);
+
+  @media (min-width: 768px) {
+    float: left;
+    margin-left: $navbar-padding-horizontal;
+    margin-right: $navbar-padding-horizontal;
+  }
+}
+
+// Labels in navbars
+.navbar-nav {
+  > li > a {
+    .label {
+      border: none !important;
+			position: absolute;
+			top: 12px;
+			right: 8px;
+			text-align: center;
+			font-size: $font-size-smaller;
+			font-weight: $font-weight-light;
+			padding: 3px 4px;
+			line-height: .9;
+			@include border-radius($border-radius-circle);
+		}
+  }
+}
+
+.navbar-icons {
+	.navbar-nav {
+	  > li > a {
+	    .label {
+	      border: none !important;
+				position: absolute;
+				top: 12px;
+				right: 14px;
+				text-align: center;
+				font-size: 9px;
+				font-weight: $font-weight-light;
+				padding: 3px 4px;
+				line-height: .9;
+				@include border-radius($border-radius-circle);
+			}
+	  }
+	}
+}
+
+
+
+// Component alignment
+//
+// Repurpose the pull utilities as their own navbar utilities to avoid specificity
+// issues with parents and chaining. Only do this when the navbar is uncollapsed
+// though so that navbar contents properly stack and align in mobile.
+//
+// Declared after the navbar components to ensure more specificity on the margins.
+
+@media (min-width: 768px) {
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+		margin-right: -$navbar-padding-horizontal;
+
+    ~ .navbar-right {
+      margin-right: 0;
+    }
+  }
+}
+
+
+// Navbars
+//
+// Generate color navbars
+@each $color in $colors-list {	
+  .navbar-#{nth($color,1)} {
+		margin-bottom: 0px !important;
+    .navbar-brand,
+    .navbar-text {
+	    &:hover,
+	    &:focus {
+				background-color: transparent;
+	    }
+	  }
+	  
+	  .navbar-nav {
+	    > .disabled > a {
+	      &,
+	      &:hover,
+	      &:focus {
+	        background-color: transparent;
+	        @include opacity(0.5);
+	      }
+	    }
+	  }
+	
+	  .navbar-toggle {
+	    border-color: none;
+	    &:hover,
+	    &:focus {
+	      background-color: transparent !important;
+	    }
+	  }
+	
+	  // Dropdown menu items
+	  .navbar-nav {			
+			// Component colors in collapse
+		  @media (max-width: 767px) {
+			  .small-dropdown-menu,
+			  .half-dropdown-menu,
+			  .full-dropdown-menu {
+				  color: $body-color-reverse;
+				  p,
+				  a {
+					  color: $body-color-reverse;
+				  }
+			  }
+		  }
+	
+	    @media (max-width: 767px) {
+	      // Dropdowns get custom display when collapsed
+	      .open .dropdown-menu {
+	        > .disabled > a {
+	          &,
+	          &:hover,
+	          &:focus {
+	            background-color: transparent;
+	          }
+	        }
+	      }
+	    }
+	  }
+	
+	  // Links in navbars
+	  //
+	  // Add a class to ensure links outside the navbar nav are colored correctly.
+	  .btn-link {
+	    &[disabled],
+	    fieldset[disabled] & {
+	      &:hover,
+	      &:focus {
+	        @include opacity (0.5);
+	      }
+	    }
+	  }
+	}
+	
+	// Responsive collapse color light
+	.navbar-#{nth($color,1)}[collapse-color="light"] {
+		.navbar-brand,
+    .navbar-text {
+	    color: $body-color-reverse !important;
+	    &:hover,
+	    &:focus {
+	      color: $body-color-reverse !important;
+				background-color: transparent !important;
+	    }
+	  }
+		
+	  // Dropdown menu items
+	  .navbar-collapse {
+			@media (max-width: 767px) {
+				background-color: $white !important;
+			}
+	  }
+	  .navbar-nav {
+	    @media (max-width: 767px) {
+		    > li {
+					border-bottom: $border-thin $border-solid darken($goo-default, 5%);
+				}
+	    }
+		  &.navbar-left,
+		  &.navbar-right {
+		    @media (max-width: 767px) {
+		      // Dropdowns get custom display when collapsed
+		      > li > a {
+			      color: $body-color !important;
+			
+			      &:hover,
+			      &:focus {
+			        color: $body-color !important;
+			        background-color: darken($goo-default,5%);
+			      }
+			    }
+			    > .active > a {
+			      &,
+			      &:hover,
+			      &:focus {
+			        color: $body-color !important;
+			        background-color: darken($goo-default,5%);
+			      }
+			    }
+			    > .disabled > a {
+			      &,
+			      &:hover,
+			      &:focus {
+			        color: $body-color !important;
+			        background-color: transparent;
+			        @include opacity (0.5);
+			      }
+			    }
+		      .open .dropdown-menu {
+			      .dropdown-header {
+				      color: $body-color !important;
+			      }
+		        > li > a {
+		          color: $body-color !important;
+		          &:hover,
+		          &:focus {
+		            color: $body-color !important;
+		            background-color: darken($goo-default,5%);
+		          }
+		        }
+		        > .active > a {
+		          &,
+		          &:hover,
+		          &:focus {
+		            color: $body-color !important;
+		            background-color: darken($goo-default,5%);
+		          }
+		        }
+		        > .disabled > a {
+		          &,
+		          &:hover,
+		          &:focus {
+		            color: $body-color !important;
+		            background-color: darken($goo-default,5%);
+								@include opacity (0.5);
+		          }
+		        }
+		      }
+		    }
+		    // Component colors in collapse
+			  @media (max-width: 767px) {
+				  .small-dropdown-menu,
+				  .half-dropdown-menu,
+				  .full-dropdown-menu {
+					  color: $body-color !important;
+				  }
+				  p,
+				  a {
+					  color: $body-color !important;
+				  }
+				  .dropdown-menu .divider {
+					  background-color: darken($goo-default, 5%);
+				  }
+				  .media-goo-title {
+					  border-bottom: $border-thin $border-solid darken($goo-default, 5%);
+				  }
+				  hr,
+				  .blog-content {
+					  border-top: $border-thin $border-solid darken($goo-default, 5%);
+				  }
+				}
+	    }
+	  }
+	}
+}
+
+.navbar-nav {;
+	// Navbar left	
+	&.navbar-left {
+		.dropdown,
+		.dropdown-menu {
+			font-weight: $font-weight-light;
+			text-align: left;
+		}
+		.dropdown-submenu {
+			font-weight: $font-weight-light;
+			text-align: left;
+			position: relative;
+			&:hover {
+				> .dropdown-menu {
+					display: inline-table;
+				}
+				> a:after {
+					border-left-color: $white;
+				}
+			}
+			&.pull-left {
+				float: none;
+				> .dropdown-menu {
+					left: -100%;
+					margin-left: 10px;
+				}
+			}
+			> .dropdown-menu {
+				top: 0;
+				left: 100%;
+				margin-top: 0;
+				margin-left: -1px;
+			}
+			> a:after {
+				display: block;
+				content: "";
+				float: right;
+				width: 0;
+				height: 0;
+				border-color: transparent;
+				border-style: $border-solid;
+				border-width: 4px 0 4px 4px;
+				border-left-color: $body-color;
+				margin-top: 6px;
+				margin-right: -10px;
+			}
+		}
+		.tip-goo {
+			float: right;
+		  	display: inline-block;
+		  	padding: 3px 5px;
+		  	background: $white;
+		  	color: $goo;
+		  	margin-left: 8px;
+		  	position: relative;
+		  	text-transform: uppercase;
+		  	font-size: $font-size-smaller;
+		  	font-weight: $font-weight-bold;
+		  	@include border-radius($border-radius-base);
+	  	}
+	  	.tip-goo:before {
+		  	right: 100%;
+		  	top: 50%;
+		  	border: $border-solid transparent;
+		  	content: " ";
+		  	height: 0;
+		  	width: 0;
+		  	position: absolute;
+		  	border-color: rgba(255, 255, 255, 0);
+		  	border-right-color: $white;
+		  	border-width: 5px;
+		  	margin-top: -5px;
+	  	}
+	}
+	
+	// Navbar right
+	&.navbar-right {
+		.dropdown,
+		.dropdown-menu {
+			text-align: right;
+		}
+		.dropdown-submenu {
+			text-align: right;
+			position: relative;
+			&:hover {
+				> .dropdown-menu {
+					display: inline-table;
+					text-align: right;
+				}
+				> a:after {
+					border-right-color: $white;
+				}
+			}
+			&.pull-right {
+				float: none;
+				> .dropdown-menu {
+					right: -100%;
+					margin-right: 10px;
+				}
+			}
+			> .dropdown-menu {
+				top: 0;
+				right: 100%;
+				margin-top: 0;
+				margin-right: -1px;
+			}
+			> a:after {
+				display: block;
+				content: "";
+				float: left;
+				width: 0;
+				height: 0;
+				border-color: transparent;
+				border-style: $border-solid;
+				border-width: 4px 4px 4px 0;
+				border-right-color: $body-color;
+				margin-top: 6px;
+				margin-left: -10px;
+			}
+		}
+		.tip-goo {
+			float: left;
+		  	display: inline-block;
+		  	padding: 3px 5px;
+		  	background: $white;
+		  	color: $goo;
+		  	margin-right: 8px;
+		  	position: relative;
+		  	text-transform: uppercase;
+		  	font-size: $font-size-smaller;
+		  	font-weight: $font-weight-bold;
+		  	@include border-radius($border-radius-base);
+	  	}
+	  	.tip-goo:before {
+		  	left: 100%;
+		  	top: 50%;
+		  	border: $border-solid transparent;
+		  	content: " ";
+		  	height: 0;
+		  	width: 0;
+		  	position: absolute;
+		  	border-color: rgba(255, 255, 255, 0);
+		  	border-left-color: $white;
+		  	border-width: 5px;
+		  	margin-top: -5px;
+	  	}
+	}
+}
+
+.navbar {	
+	.small-dropdown {
+		color: $body-color;
+		position: relative;
+		text-align: left !important;
+	}
+	.small-dropdown-menu {
+		padding: 15px;
+		text-align: left !important;
+		width: $navbar-small-dropdown-width;
+	  	img {
+		  	border: $border-thin $border-solid $border-color;
+	  	}
+	  	> li {
+	  		> ul {
+	  			padding: 0;
+	  			margin: 0;
+	  			> li {
+	  				list-style: none;
+	  				> a {
+	  					display: block;
+	  					padding: 3px 20px;
+	  					clear: both;
+	  					font-weight: $font-weight-light;
+	  					white-space: normal;
+	  				}
+	  			}
+	  		}
+	  	}
+	}
+	
+	// Half dropdown
+	.half-dropdown {
+		color: $body-color;
+	  position: relative !important;
+	  text-align: left !important;
+  }
+  .half-dropdown-menu {
+	  	padding: 15px;
+	  	width: $navbar-half-dropdown-width;
+		text-align: left !important;
+	  	> li {
+	  		> ul {
+	  			padding: 0;
+	  			margin: 0;
+	  			> li {
+	  				list-style: none;
+	  				> a {
+	  					display: block;
+	  					padding: 3px 20px;
+	  					clear: both;
+	  					font-weight: $font-weight-light;
+	  					white-space: normal;
+	  				}
+	  			}
+	  		}
+	  	}
+  	}
+	  
+	// Full dropdown
+	.full-dropdown {
+		color: $body-color;
+	  position: static !important;
+	  text-align: left !important;
+	 }
+	.full-dropdown-menu {
+	  	padding: 15px;
+	  	width: $navbar-full-dropdown-width;
+	  text-align: left !important;
+	  @media (min-width: 768px) {
+		  position: absolute !important;
+			display: table !important;
+			margin: 0 auto !important;
+			left: 0 !important;
+			right: 0 !important;
+		}
+	  	> li {
+	  		> ul {
+	  			padding: 0;
+	  			margin: 0;
+	  			> li {
+	  				list-style: none;
+	  				> a {
+	  					display: block;
+	  					padding: 3px 20px;
+	  					clear: both;
+	  					font-weight: $font-weight-light;
+	  					white-space: normal;
+	  				}
+	  			}
+	  		}
+	  	}
+	}
+}
+
+// Icons
+.navbar-icons {
+	@media (min-width: 768px) {
+		&.navbar .navbar-brand {
+			margin-top: 12px;
+		}
+		&.navbar .navbar-form {
+			padding-top: 12px;
+		}
+		.navbar-nav {
+			> li > a {
+				text-align: center;
+				padding: 6px 15px;
+				margin: 0 3px;
+			}
+			[class^="pe"],
+			[class^="fa"] {
+				margin-top: 12px;
+				font-size: 22px;
+				position: relative;
+			}
+			.dropdown-menu {
+				[class^="pe"],
+				[class^="fa"] {
+					margin-top: 0;
+					font-size: $font-size-base;
+				}
+			}
+	    p {
+	      margin-top: -3px;
+	    }
+	  }
+	}
+	@media (max-width: 767px) {
+		.navbar-nav {
+			> li > a {
+				[class^="pe"],
+				[class^="fa"] {
+					display: none;
+				}
+			}
+	  }
+	}
+	@media (max-width: 767px) {
+		p {
+			margin: 0 !important;
+		}
+	}
+}
+
+// Animations
+@media (min-width: 768px) {
+	.navbar ul > li.dropdown .dropdown-menu,
+	.navbar-fixed-top ul > li.dropdown .dropdown-menu,
+	.navbar-static ul > li.dropdown .dropdown-menu {
+	  top: -1000000px;
+	}
+	.navbar-fixed-bottom ul > li.dropdown .dropdown-menu {
+	  top: 1000000px;
+	}
+	
+	@media (min-width: 768px) {	
+		.navbar ul > li.dropdown {
+			.dropdown-menu {
+				display: block;
+				min-width: 200px;
+				@include opacity(0);
+				@include box-shadow(0 10px 20px rgba(0, 0, 0, 0.08));
+				li.dropdown-submenu {
+					> .dropdown-menu {
+						display: inline-table;
+						@include opacity(0);
+					}
+					&:hover > .dropdown-menu {
+						top: 0;
+						@include opacity(1);
+					}
+				}
+			}
+			&.open > .dropdown-menu,
+			&:hover > .dropdown-menu {
+				top: auto;
+				display: block;
+				@include opacity(1);
+			}
+		}
+		.navbar[animation="true"]  ul > li.dropdown {
+			.dropdown-menu {
+				@include transition(transform $transition-time $transition-timing-function-eio);
+				@include transform(translate3d(0, -5px, 0));
+			}
+			&:hover > .dropdown-menu {
+				@include transform(translate3d(0, 0, 0));
+			}
+		}
+		.navbar[animation="true"]  ul > li.dropdown {
+			.dropdown-menu li.dropdown-submenu {
+				> .dropdown-menu {
+					@include transition(transform $transition-time $transition-timing-function-eio, opacity $transition-time $transition-timing-function-eio);
+					@include transform(translate3d(0, 0, 0, 20px));
+					@include opacity(0);
+				}
+				&:hover > .dropdown-menu {
+					@include transform(translate3d(0, 0, 0));
+					@include opacity(1);
+				}
+			}
+		}
+	}
+}

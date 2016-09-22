@@ -1,0 +1,34 @@
+// Navbars transparent
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@each $color in $colors-list {		
+	.navbar-#{nth($color,1)}.scrolled[class*="navbar-transparent"] {
+	  background-color: #{nth($color,2)};
+	  color: #{nth($color,3)};
+	  
+	  .navbar-brand {
+			color: #{nth($color,3)};
+		}
+		
+		.navbar-nav {
+			> li > a {
+	      color: #{nth($color,3)};
+	      &:hover,
+	      &:focus {
+	        color: #{nth($color,3)};
+	        background-color: darken(nth($color,2), 5%);
+	      }
+	    }
+	    > .active > a {
+	      &,
+	      &:hover,
+	      &:focus {
+	        color: #{nth($color,3)};
+	        background-color: darken(nth($color,2), 5%);
+	      }
+	    }
+	  }
+	}
+}

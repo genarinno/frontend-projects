@@ -1,0 +1,56 @@
+// Settings
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$shadow: true;	// options: true or false
+$radius: true; 	// options: true or false
+$background: light; // options: light or dark
+$rtl: false; // options: true or false
+
+
+// Settings
+//
+// ##
+@each $color in $colors-list {
+	
+	// Radius
+	@if $radius == false {
+		.header,
+		.preview-inner,
+		.btn-group > .btn:first-child,
+		.btn-group > .btn:last-child:not(:first-child),
+		.btn-group > .dropdown-toggle:not(:first-child) {
+			border-radius: 1px !important;
+		}
+	}
+	
+	// Shadow
+	@if $shadow == false {
+	  .preview-inner {
+			box-shadow: none !important;
+	  }
+	}
+	
+	// Background
+	@if $background == dark {
+		body.goo {
+			background-color: $body-bg-reverse;
+			color: $body-color-reverse;
+			.section-goo-main {
+				background: $goo-dark;
+				color: $body-color-reverse;
+				border-color: $goo;
+			}
+			.register,
+			.wizard,
+			.modal-goo-cookie {
+				color: $body-color;
+			}
+		}
+	}
+}

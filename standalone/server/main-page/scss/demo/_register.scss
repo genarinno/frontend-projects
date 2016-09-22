@@ -1,0 +1,106 @@
+// Register
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@each $color in $colors-list {
+	.register-goo-#{nth($color,1)} {
+		color: $body-color;
+		background: transparent;
+		.nav-tabs {
+			position: relative;
+			margin-bottom: 0;
+			border-bottom-color: $border-color;
+		}
+		.nav-tabs > li.active > a,
+		.nav-tabs > li.active > a:hover,
+		.nav-tabs > li.active > a:focus {
+			color: $border-color;
+			cursor: default;
+			border: 0;
+			border-bottom-color: transparent;
+		}
+		li.active span.round-tab {
+			background: $white;
+			border: 2px solid #{nth($color,2)};
+		}
+		li.active span.round-tab i{
+			color: #{nth($color,2)};
+		}
+		.nav-tabs > li {
+			width: 25%;
+		}
+		li:after {
+			content: " ";
+			position: absolute;
+			left: 46%;
+			@include opacity(0);
+			margin: 0 auto;
+			bottom: 0px;
+			border: 5px solid transparent;
+			border-bottom-color: #{nth($color,2)};
+			@include transition(all $transition-time $transition-timing-function-eio);
+		}
+		li.active:after {
+			content: " ";
+			position: absolute;
+			left: 46%;
+			@include opacity(1);
+			margin: 0 auto;
+			bottom: 0px;
+			border: 10px solid transparent;
+			border-bottom-color: #{nth($color,2)};
+		}
+		.nav-tabs > li a {
+			width: 70px;
+			height: 70px;
+			margin: 20px auto;
+			padding: 0;
+			@include border-radius($border-radius-circle);
+		}
+		.nav-tabs > li a:hover {
+			background: transparent;
+		}
+		.tab-pane {
+			position: relative;
+			padding-top: 50px;
+		}
+		h3 {
+			margin-top: 0;
+		}
+	}
+	.register-goo>div.register-goo-inner {
+		position: relative;
+	}
+	.connecting-line {
+		height: 1px;
+		background: $border-color;
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		top: 50%;
+		z-index: 1;
+	}
+	span.round-tab {
+		width: 70px;
+		height: 70px;
+		line-height: 70px;
+		display: inline-block;
+		background: $white;
+		border: $border-thin $border-solid $border-color;
+		z-index: 2;
+		position: absolute;
+		left: 0;
+		text-align: center;
+		font-size: 25px;
+		@include border-radius($border-radius-circle);
+		i {
+		color: $border-color;
+		}
+	}
+	span.round-tab:hover {
+		color: $goo;
+		border: $border-thin $border-solid $border-color;
+	}
+}

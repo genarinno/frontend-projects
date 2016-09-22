@@ -1,0 +1,47 @@
+// Preloaders
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+#preloader {
+	visibility: hidden;
+	@include transition(all 0.3s ease-in-out);
+	@include opacity(0);
+}
+#preloader.active {
+	opacity: 1;
+	visibility: visible;
+}
+.preloader {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: $body-bg;
+	background-size: cover;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	@include transition(all 0.17s ease-in-out);
+}
+
+@each $color in $colors-list {
+	.loader-#{nth($color,1)} {
+		top: 40%;
+		margin: auto;
+		font-size: $font-size-small;
+		position: relative;
+		text-indent: -9999em;
+		border-top: $border-base $border-solid $border-color;
+		border-right: $border-base $border-solid $border-color;
+		border-bottom: $border-base $border-solid $border-color;
+		@include animation(pageloader (1.1s infinite linear));
+		@include transform(translateZ (0));
+	}
+	.loader-#{nth($color,1)},
+	.loader-#{nth($color,1)}:after {
+		width: 80px;
+		height: 80px;
+		@include border-radius($border-radius-circle);
+	}
+}

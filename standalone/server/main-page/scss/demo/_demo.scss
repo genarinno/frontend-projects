@@ -1,0 +1,206 @@
+// Demo
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+// Landing page
+.bg {
+  background: no-repeat top center;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 400px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.jumbotron {
+  background: transparent;
+  color: $body-color;
+  height: 400px;
+  h1 {
+	  margin-top: 100px;
+	  font-size: 34px;
+  }
+}
+@each $color in $colors-list {
+	.text-#{nth($color,1)} {
+		color: #{nth($color,2)}
+	}
+}
+
+// Demo grid
+.grid-goo {
+	.col-md-1,
+	.col-md-2,
+	.col-md-3,
+	.col-md-4,
+	.col-md-5,
+	.col-md-6,
+	.col-md-7,
+	.col-md-8,
+	.col-md-9,
+	.col-md-10,
+	.col-md-11,
+	.col-md-12 {
+		background: $goo-lightest;
+		border: $border-thin $border-solid $border-color;
+		padding: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+}
+
+// Line
+hr.goo-line {
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
+
+// Image Overlay (Blog)
+.overlay-goo {
+	.image-goo-wrapper {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		img {
+			width: 100%;
+			height: auto !important;
+		}
+	}
+	.image-goo-content {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+	}
+	.fade-in {
+		img {
+			@include transition(all $transition-time $transition-timing-function-eio);
+		}
+		h2 {
+			color: $body-color-reverse;
+			background: rgba(0, 0, 0, 0.7);
+			margin-top: 20%;
+			padding: 20px;
+			@include transition(all $transition-time $transition-timing-function-eio);
+			@include opacity(0);
+		}
+		.image-goo-content {
+			@include opacity(0);
+			background-color: rgba(0, 0, 0, 0.4);
+			@include transition(all $transition-time $transition-timing-function-eio);
+		}
+		.button {
+			display: inline-block;
+			text-decoration: none;
+			padding: 7px 14px;
+			background-color: rgba(0, 0, 0, 0.4);
+			color: $body-color-reverse;
+			font-weight: 400;
+			text-transform: uppercase;
+			position: relative;
+			border: $border-thin $border-solid $border-color;
+			@include box-shadow(0 0 1px $body-color-reverse);
+			@include border-radius($border-radius);
+			@include transition(all $transition-time $transition-timing-function-eio);
+			@include opacity(0);
+			&:hover {
+				@include box-shadow(0 0 5px $body-color-reverse);
+			}
+		}
+		&:hover {
+			img {
+				transform: scale(1.2);
+			}
+			h2, {
+				@include opacity(1);
+			}
+			.button {
+				@include transition(all $transition-time $transition-timing-function-eio);
+				@include opacity(1);
+			}
+			.image-goo-content {
+				@include opacity(1);
+			}
+		}
+	}
+}
+
+// Media Objects
+.media-goo {
+  margin-top: 15px;
+}
+.media-goo:first-child {
+  margin-top: 0;
+}
+.media-goo,
+.media-goo-body {
+  overflow: hidden;
+  zoom: 1;
+}
+.media-goo-title {
+	color: $body-color;
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+	text-transform: uppercase;
+	border-bottom: $border-thin $border-solid $border-color;
+	margin: 10px 0;
+}
+.media-goo-body {
+  width: 10000px;
+}
+.media-goo-object {
+  display: block;
+	width: 62px;
+	height: auto;
+}
+.media-goo-object.img-thumbnail {
+  max-width: none;
+}
+.media-goo-right,
+.media-goo > .pull-right {
+  padding-left: 10px;
+}
+.media-goo-left,
+.media-goo > .pull-left {
+  padding-right: 10px;
+}
+.media-goo-left,
+.media-goo-right,
+.media-goo-body {
+  display: table-cell;
+  vertical-align: top;
+}
+.media-goo-middle {
+  vertical-align: middle;
+}
+.media-goo-bottom {
+  vertical-align: bottom;
+}
+.media-goo-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.media-goo-list {
+  padding-left: 0;
+  list-style: none;
+}
+.media-goo-iframe,
+#map-goo-container {
+	margin-top: 7px;
+	height: 228px;
+	width: 100%;
+}
+#map-goo-container {
+	margin-top: 17px;
+}
+
+.demo-content {
+	margin-top: 50px;
+}

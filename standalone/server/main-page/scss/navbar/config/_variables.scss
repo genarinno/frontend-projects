@@ -1,0 +1,249 @@
+// Variables
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+// Colors
+//
+
+// Light / dark
+$white: #ffffff !default;
+$black: #000000 !default;
+
+$transparent: transparent !default;
+
+$dark-text-default: black !default;
+$light-text-default: white !default;
+
+$goo-darker: #111111 !default;
+$goo-dark: #222222 !default;
+$goo: #333333 !default;
+$goo-light: #818a91 !default;
+$goo-lighter: #eceeef !default;
+$goo-lightest: #f7f7f9 !default;
+
+/*$goo-primary:	 #1b95e0 !default;
+$goo-primary-inverse: $white !default;*/
+$goo-primary:	 #FF8C00 !default;
+$goo-primary-inverse: $black !default;
+$goo-primary:	 #3a4321 !default;
+$goo-primary-inverse: #ffff00 !default;
+$goo-secondary: #F20583 !default;
+$goo-secondary-inverse: $white !default;
+$goo-tertiary: #1A9299 !default;
+$goo-tertiary-inverse: $white !default;
+$goo-quaternary: #364559 !default;
+$goo-quaternary-inverse: $white !default;
+
+$goo-default: #f8f8f8 !default;
+$goo-default-inverse: #777777 !default;
+$goo-inverse: #222222 !default;
+$goo-inverse-inverse:	lighten($goo-light, 15%) !default;
+
+$goo-light: $goo-lightest !default;
+$goo-light-inverse: $goo-dark !default;
+$goo-dark: #1d2127 !default;
+$goo-dark-inverse: $white !default;
+
+$goo-success: #5cb85c !default;
+$goo-success-inverse: $white !default;
+$goo-info: #5bc0de !default;
+$goo-info-inverse: $white !default;
+$goo-warning: #f0ad4e !default;
+$goo-warning-inverse: $white !default;
+$goo-danger: #d9534f !default;
+$goo-danger-inverse: $white !default;
+
+$goo-transparent-white: $white;
+$goo-transparent-white-inverse: $white;
+$goo-transparent-black: $black;
+$goo-transparent-black-inverse: $black;
+
+// Social
+$goo-facebook: #3a5795 !default;
+$goo-facebook-inverse: $white !default;
+$goo-twitter: #5aadec !default;
+$goo-twitter-inverse: $white !default;
+$goo-google: #da4a39 !default;
+$goo-google-inverse: $white !default;
+$goo-github: #5c417e !default;
+$goo-github-inverse: $white !default;
+
+$goo-placeholder: #999999 !default;
+
+// Gradient
+$start-color: rgba(0, 0, 0, 0.4) !default;
+$end-color: rgba(0, 0, 0, 0.0001) !default;
+
+
+// Colors list
+$colors-list: (primary $goo-primary $goo-primary-inverse) 	(secondary $goo-secondary $goo-secondary-inverse) 	(tertiary $goo-tertiary $goo-tertiary-inverse) 	(quaternary $goo-quaternary $goo-quaternary-inverse) 	(inverse $goo-inverse $goo-inverse-inverse)	(default $goo-default $goo-default-inverse) (info $goo-info $goo-info-inverse) (success $goo-success $goo-success-inverse) (warning $goo-warning $goo-warning-inverse) (danger $goo-danger $goo-danger-inverse);
+
+
+// Body
+$body-bg: $white !default;
+$body-bg-reverse: $goo-darker !default;
+$body-color: $goo-dark !default;
+$body-color-reverse: $white !default;
+
+
+$font-size-base: 14px !default;
+$font-size-large: ceil(($font-size-base * 1.25)) !default;
+$font-size-small: ceil(($font-size-base * 0.85)) !default;
+$font-size-smaller: ceil(($font-size-small * 0.65)) !default;
+
+$font-size-h1: floor(($font-size-base * 2.6)) !default;
+$font-size-h2: floor(($font-size-base * 2.15)) !default;
+$font-size-h3: ceil(($font-size-base * 1.7)) !default;
+$font-size-h4: ceil(($font-size-base * 1.25)) !default;
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil(($font-size-base * 0.85)) !default;
+
+$font-weight-light: 300 !default;
+$font-weight-base: 400 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+
+// Borders
+//
+// ##
+$border-thin: 1px !default;
+$border-base: 3px !default;
+$border-thick: 5px !default;
+
+// Border style
+$border-solid: solid !default;
+$border-dashed: dashed !default;
+$border-dotted: dotted !default;
+
+// Border radius
+$border-radius-circle: 50% !default;
+$border-radius: 5px !default;
+$border-radius-round: 30px !default;
+$border-radius-base: $border-radius;
+
+// Border color
+$border-color: #ccc !default;
+
+
+// Line heights
+//
+// Base
+$line-height-base: 1.428571429 !default;
+
+// Computed
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default;
+
+// Large
+$line-height-large: 1.3333333 !default;
+
+// Small
+$line-height-small: 1.5 !default;
+
+
+// Grid
+//
+// ##
+$grid-gutter-width: 30px !default;
+
+
+// Z-Index
+//
+// ##
+$zindex-navbar: 1000 !default;
+$zindex-dropdown: 1000 !default;
+$zindex-navbar-fixed: 1030 !default;
+
+
+// Padding
+//
+// Base
+$padding-base-vertical: 6px !default;
+$padding-base-horizontal:12px !default;
+
+// Large
+$padding-large-vertical: 10px !default;
+$padding-large-horizontal: 16px !default;
+
+// Small
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 10px !default;
+
+// XS
+$padding-xs-vertical: 1px !default;
+$padding-xs-horizontal: 5px !default;
+
+
+
+// Forms
+//
+// Colors
+$input-bg: $white;
+$input-border-color: $border-color;
+
+// Line height
+$input-height-base: ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
+$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
+
+
+// Navbar
+//
+// ##
+// Basics of a navbar
+$navbar-height: 50px !default;
+$navbar-vertical-align: 34px !default;
+$navbar-collapse-max-height: 340px !default;
+$navbar-landscape-collapse-height: 200px !default;
+
+// Margin
+$navbar-margin-bottom: $line-height-computed !default;
+
+// Padding
+$navbar-padding-horizontal: floor(($grid-gutter-width / 2)) !default;
+$navbar-padding-vertical: (($navbar-height - $line-height-computed) / 2) !default;
+
+// Border
+$navbar-border: $border-thin !default;
+$navbar-border-radius: $border-radius-base !default;
+
+// Bars / hamburger
+$navbar-icon-hamburger-color: $white !default;
+
+// Dropdowns
+$navbar-small-dropdown-width: 300px !default;
+$navbar-half-dropdown-width: 600px !default;
+$navbar-full-dropdown-width: 1198px !default;
+
+// Navbar Transparent
+//
+// Colors
+$navbar-transparent-text-color: $goo-primary-inverse !default;
+$navbar-transparent-link-color: $goo-primary-inverse !default;
+
+// Caret
+//
+// ##
+$caret-width-base: 4px !default;
+$caret-width-large: 5px !default;
+
+
+// Hamburger
+//
+// ##
+$hamburger-layer-width: 20px !default;
+$hamburger-layer-height: 1px !default;
+$hamburger-layer-spacing: 6px !default;
+$hamburger-layer-color: $navbar-icon-hamburger-color !default;
+$hamburger-hover-transition-duration: 0.15s !default;
+$hamburger-hover-transition-timing-function: linear !default;
+
+
+// Mixins
+//
+// Transition
+$transition-time: 0.5s !default;
+$transition-timing-function-l: linear !default;
+$transition-timing-function-eo: ease-out !default;
+$transition-timing-function-eio: ease-in-out !default;

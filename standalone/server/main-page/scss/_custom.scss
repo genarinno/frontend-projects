@@ -1,0 +1,35 @@
+html,body{
+	background-color:#F6F6F6;
+	font-family: Lato, "Helvetica Neue", Helvetica,Arial,sans-serif;
+}
+
+.goo{
+	.navbar-primary{
+		@include gradient-vertical(#FF6B09, #D55500);
+
+		.navbar-nav>li>a {
+			color:#F6F6F6;
+		}
+
+		.navbar-brand {
+			color:#F6F6F6;
+		}
+
+		.navbar-left{
+			li>a{
+				background:transparent;
+			}
+		}
+	}
+
+	@media (max-width: 767px){
+		.navbar-primary .navbar-nav .open .dropdown-menu>li>a {
+			color: #F6F6F6;
+    		font-weight: 300 !important;
+		}
+	}
+
+	.navbar-primary .navbar-nav>.open>a, .navbar-primary .navbar-nav>.open>a:hover, .navbar-primary .navbar-nav>.open>a:focus {
+		color: #F6F6F6;
+	}
+}

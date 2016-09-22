@@ -1,0 +1,153 @@
+// Wizard
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@each $color in $colors-list {	
+	.wizard {
+		background-color: $white;
+		padding: 10px 0 20px;
+		width: 100%;
+		min-height: 410px;
+		padding: 0;
+		@include transition(all $transition-time $transition-timing-function-eio);
+		.avatar {
+			position: relative;
+			text-align: center;
+			width: 106px;
+			height: 106px;
+			border-radius: $border-radius-circle;
+		}
+		.avatar-#{nth($color,1)} {
+			background-color: #{nth($color,2)};
+			color: $white;
+			border: $border-thick $border-solid $border-color;
+			margin: 5px auto;
+			overflow: hidden;
+			@include transition(all $transition-time $transition-timing-function-eio);
+			&:hover {
+				border-color: $goo-primary;
+			}
+			input[type="file"] {
+				cursor: pointer;
+				display: block;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				@include opacity(0);
+			}
+		}
+		&.wizard-#{nth($color,1)} {
+			.chooce {
+				&:hover .icon {
+					border-color: #{nth($color,2)};
+				}
+				&.active .icon {
+					border-color: #{nth($color,2)};
+				}
+			}
+			.avatar:hover {
+				border-color: #{nth($color,2)};
+			}
+			.nav-pills > li.active a {
+				background-color: #{nth($color,2)};
+			}
+		}
+		.avatar-source {
+			width: 100%;
+		}
+		.tab-content {
+			min-height: 340px;
+			padding: 20px 10px;
+		}
+		.wizard-footer {
+			padding: 0 10px;
+		}
+		.disabled {
+			display: none;
+		}
+		.info-text {
+			text-align: center;
+			margin: 10px 0 30px;
+		}
+		.chooce {
+			text-align: center;
+			cursor: pointer;
+			margin-top: 20px;
+			.icon {
+				background-color: $goo-default;
+				color: $goo-default-inverse;
+				text-align: center;
+				vertical-align: middle;
+				height: 116px;
+				width: 116px;
+				margin: 0 auto 20px;
+				border: $border-thick $border-solid $border-color;
+				@include border-radius($border-radius-circle);
+				@include transition(all $transition-time $transition-timing-function-eio);
+			}
+			i {
+				font-size: 30px;
+				line-height: 111px;
+			}
+			input[type="radio"],
+			input[type="checkbox"] {
+				position: absolute;
+				left: -10000px;
+				z-index: -1;
+			}
+			&:hover .icon {
+				border-color: $goo-primary;
+			}
+			&.active .icon {
+				border-color: $goo-primary;
+			}
+		}
+		.btn-finish {
+			display: none;
+		}
+		.description {
+			color: $body-color;
+			font-size: $font-size-base;
+		}
+		.wizard-header {
+			text-align: center;
+			margin-bottom: 25px;
+		}
+		.nav-pills > li {
+			text-align: center;
+			a {
+				color: $white !important;
+				background-color: $goo-default-inverse;
+				font-size: $font-size-base;
+				border: 0 !important;
+			}
+			> a {
+				&:hover,
+				&:focus {
+					background-color: $goo-default-inverse;
+					cursor: default;
+				}
+			}
+			&:first-child > a {
+				margin: 0;
+				@include border-radius(0);
+			}
+			&:last-child > a {
+				@include border-radius(0);
+			}
+		}
+	}
+	.wizard-container {
+		padding-top: 100px;
+		z-index: 3;
+	}
+	.nav > li > a {
+		&:hover,
+		&:focus {
+			background-color: $goo-default;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+// Navbars transparent
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@each $color in $colors-list {
+	@media (min-width: 768px) {
+		.navbar-#{nth($color,1)}[class*="navbar-transparent"] {
+			background-color: transparent;
+			border-color: none !important;
+			border-bottom: none !important;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			.navbar-nav {
+				> li > a {
+		      color: $navbar-transparent-link-color;
+		      &:hover,
+		      &:focus {
+		        color: $navbar-transparent-link-color;
+		        background-color: transparent !important;
+		      }
+		    }
+		    > .active > a {
+		      &,
+		      &:hover,
+		      &:focus {
+		        color: $navbar-transparent-link-color;
+		        background-color: transparent !important;
+		      }
+		    }
+		  }
+		  .navbar-brand {
+				color: $navbar-transparent-text-color;
+			}
+			.navbar-form {
+				display: none;
+			}
+		}
+		
+		.navbar-#{nth($color,1)}.scrolled[class*="navbar-transparent"] {
+			padding-top: 0;
+			padding-bottom: 0;
+			.navbar-form {
+				display: flex;
+			}
+		}
+	}
+}

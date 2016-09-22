@@ -1,0 +1,12 @@
+// Settings
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+// Bootstrap select
+@function fade($color, $amnt) {
+  @if $amnt > 1 {
+    $amnt: $amnt / 100; // convert to percentage if int
+  }
+  @return rgba($color, $amnt);
+}

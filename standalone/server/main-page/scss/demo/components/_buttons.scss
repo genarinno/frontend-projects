@@ -1,0 +1,114 @@
+// Buttons
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+.btn {
+	font-weight: $font-weight-light;
+	@include transition(all $transition-time $transition-timing-function-l);
+}
+	
+// Social
+.btn-goo-facebook {
+	color: $white;
+	background-color: $goo-facebook;
+	border-color: darken($goo-facebook, 10%);
+  @include transition(all $transition-time $transition-timing-function-eio);
+	&:hover {
+		color: $white;
+		background-color: lighten($goo-facebook, 5%);
+		border-color: darken($goo-facebook, 10%);
+	}
+	&:active,
+	&:focus {
+		color: $white;
+		background-color: lighten($goo-facebook, 5%);
+		border-color: darken($goo-facebook, 5%);
+	}
+}
+.btn-goo-twitter {
+	color: $white;
+	background-color: $goo-twitter;
+	border-color: darken($goo-twitter, 10%);
+	@include transition(all $transition-time $transition-timing-function-eio);
+	&:hover {
+		color: $white;
+		background-color: lighten($goo-twitter, 5%);
+		border-color: darken($goo-twitter, 5%);
+	}
+	&:active,
+	&:focus {
+		color: $white;
+		background-color: lighten($goo-twitter, 5%);
+		border-color: darken($goo-twitter, 5%);
+	}
+}
+.btn-goo-google {
+	color: $white;
+	background-color: $goo-google;
+	border-color: darken($goo-google, 10%);
+	@include transition(all $transition-time $transition-timing-function-eio);
+	&:hover {
+		color: $white;
+		background-color: lighten($goo-google, 5%);
+		border-color: darken($goo-google, 5%);
+	}
+	&:active,
+	&:focus {
+		color: $white;
+		background-color: darken($goo-google, 5%);
+		border-color: darken($goo-google, 5%);
+	}
+}
+.btn-goo-github {
+	color: $white;
+	background-color: $goo-github;
+	border-color: darken($goo-github, 10%);
+	@include transition(all $transition-time $transition-timing-function-eio);
+	&:hover {
+		color: $white;
+		background-color: lighten($goo-github, 5%);
+		border-color:darken($goo-github, 5%);
+	}
+	&:active,
+	&:focus {
+		color: $white;
+		background-color: lighten($goo-github, 5%);
+		border-color:darken($goo-github, 5%);
+	}
+}
+
+// Outlined
+.btn-goo-outlined {
+	border-width: 1px;
+	padding: 6px 12px;
+}
+	
+@each $color in $colors-list {
+	.btn-goo-outlined {
+		&.btn-goo-#{nth($color,1)} {
+			color: #{nth($color,2)};
+			background: transparent;
+			border-color: #{nth($color,2)};
+			&:hover, &:focus {
+				color: #{nth($color,3)};
+				background-color: lighten(nth($color,2), 5%);
+				border-color: #{nth($color,2)};
+			}
+		}
+	}
+}
+
+// Rounded
+.btn-goo-round {
+  padding: 6px 10px;
+  @include border-radius($border-radius-round);
+}
+
+// Circle
+.btn-goo-circle {
+  height: 34px;
+  width: 34px;
+  padding: 6px 10px;
+  @include border-radius($border-radius-circle);
+}

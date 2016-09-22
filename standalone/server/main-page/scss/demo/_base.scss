@@ -1,0 +1,39 @@
+// Base
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+body {
+	background-color: $body-bg;
+	color: $body-color;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	font-weight: $font-weight-light;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	a {
+		color: $goo-dark;
+		outline: none !important;
+		@include transition(all 0.3s linear);
+	}
+	a:hover,
+	a:focus {
+		color: $goo-darker;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: $font-weight-light;
+}
+
+@media (max-width: 767px) {
+	.nav:before {
+		margin-top: -7px !important;
+	}
+}

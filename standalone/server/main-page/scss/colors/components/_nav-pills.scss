@@ -1,0 +1,30 @@
+// Nav pills
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@each $color in $colors-list {
+	.nav-pills-#{nth($color,1)} > li.active > a,
+	.nav-pills-#{nth($color,1)} > li.active > a:hover,
+	.nav-pills-#{nth($color,1)} > li.active > a:focus {
+	  background-color: #{nth($color,2)};
+	  > li {
+			> a {
+				border: $border-thin $border-solid #{nth($color,2)};
+				color: #{nth($color,2)};
+			}
+			&.active > a {
+				background-color: #{nth($color,2)};
+				color: #{nth($color,3)};
+				&:hover {
+					background-color: #{nth($color,2)};
+					color: #{nth($color,3)};
+				}
+				&:focus {
+					background-color: #{nth($color,2)};
+					color: #{nth($color,3)};
+				}
+			}
+		}
+	}
+}

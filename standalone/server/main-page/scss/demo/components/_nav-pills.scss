@@ -1,0 +1,32 @@
+// Nav Pills
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+.nav-pills {
+	> li {
+		+ li {
+			margin-left: 0;
+		}
+		&:first-child > a {
+			margin: 0;
+			@include border-radius($border-radius-round 0 0 $border-radius-round);
+		}
+		&:last-child > a {
+			@include border-radius(0 $border-radius-round $border-radius-round 0);
+		}
+	}
+}
+
+@each $color in $colors-list {
+	.nav-pills-#{nth($color,1)} > li.active > a,
+	.nav-pills-#{nth($color,1)} > li.active > a:hover,
+	.nav-pills-#{nth($color,1)} > li.active > a:focus {
+	  > li {
+			> a {
+				margin-left: -1px;
+				@include border-radius(0);
+			}
+		}
+	}
+}

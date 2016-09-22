@@ -1,0 +1,203 @@
+// Navbars
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@each $color in $colors-list {	
+  .navbar-#{nth($color,1)} {
+    background-color: #{nth($color,2)};
+    color: #{nth($color,3)};
+    border-color: #{nth($color,2)} #{nth($color,2)} darken(nth($color,2), 10%) !important;
+		border-bottom: $border-base $border-solid lighten(nth($color,2), 20%) !important;
+    
+    .navbar-brand,
+    .navbar-text {
+	    color: darken(nth($color,3), 10%);
+	    &:hover,
+	    &:focus {
+	      color: #{nth($color,3)};
+	    }
+	  }
+	
+	  .navbar-nav {
+		  // Tip
+		  &.navbar-left,
+		  &.navbar-right {
+		  		.tip-goo-#{nth($color,1)} {
+				  	background: #{nth($color,2)};
+				  	color: #{nth($color,3)};
+			  	}
+			}
+			&.navbar-left {
+			  	.tip-goo-#{nth($color,1)}:before {
+				  	border-right-color: #{nth($color,2)};
+			  	}
+			}
+			
+			// Navbar right
+			&.navbar-right {
+			  	.tip-goo-#{nth($color,1)}:before {
+				  	border-left-color: #{nth($color,2)};
+			  	}
+			}
+			
+			// Colors
+	    > li > a {
+	      color: #{nth($color,3)};
+	
+	      &:hover,
+	      &:focus {
+	        color: #{nth($color,3)};
+	        background-color: darken(nth($color,2), 5%);
+	      }
+	    }
+	    > .active > a {
+	      &,
+	      &:hover,
+	      &:focus {
+	        color: #{nth($color,3)};
+	        background-color: darken(nth($color,2), 5%);
+	      }
+	    }
+	    > .disabled > a {
+	      &,
+	      &:hover,
+	      &:focus {
+	        color: lighten(nth($color,3), 15%);
+	      }
+	    }
+	    @media (max-width: 767px) {
+		    > li {
+					border-bottom: $border-thin $border-solid lighten(nth($color,2), 5%);
+				}
+	    }
+	  }
+	
+	  .navbar-toggle {
+	    .icon-bar {
+	      background-color: #{nth($color,3)};
+	    }
+	  }
+	
+	  .navbar-collapse,
+	  .navbar-form {
+	    border-color: lighten(nth($color,2), 5%);
+	  }
+	
+	  // Dropdown menu items
+	  .navbar-nav {
+		  // Navbar left	
+			&.navbar-left {
+		    .dropdown-menu>li>a:hover {
+			    border-left: $border-base $border-solid #{nth($color,2)};
+		    }
+			}
+			
+			// Navbar right
+			&.navbar-right {
+		    .dropdown-menu>li>a:hover {
+			    border-right: $border-base $border-solid #{nth($color,2)};
+			    @media (max-width: 767px) {
+				    border-left: $border-base $border-solid #{nth($color,2)};
+			    }
+		    }
+			}
+			
+	    // Remove background color from open dropdown
+	    > .open > a {
+	      &,
+	      &:hover,
+	      &:focus {
+	        background-color: darken(nth($color,2), 5%);
+	        color: #{nth($color,3)};
+	      }
+	    }
+	    
+			@media (min-width: 768px) {
+		    .dropdown-menu {
+				  border-top: $border-base $border-solid lighten(nth($color,2), 1%);
+				  border-bottom: $border-base $border-solid lighten(nth($color,2), 1%);
+			  }
+			}
+			
+			// Component colors in collapse
+		  @media (max-width: 767px) {
+			  .small-dropdown-menu,
+			  .half-dropdown-menu,
+			  .full-dropdown-menu {
+				  color: $body-color-reverse;
+				  p,
+				  a {
+					  color: $body-color-reverse;
+				  }
+			  }
+			  .dropdown-menu .divider {
+				  background-color: lighten(nth($color,2), 5%);
+			  }
+			  .media-goo-title {
+				  border-bottom: $border-thin $border-solid lighten(nth($color,2), 5%);
+			  }
+			  hr,
+			  .blog-content {
+				  border-top: $border-thin $border-solid lighten(nth($color,2), 5%);
+			  }
+		  }
+	
+	    @media (max-width: 767px) {
+	      // Dropdowns get custom display when collapsed
+	      .open .dropdown-menu {
+	        > li > a {
+	          color: #{nth($color,3)};
+	          &:hover,
+	          &:focus {
+	            color: #{nth($color,3)};
+	            background-color: darken(nth($color,2), 5%);
+	          }
+	        }
+	        > .active > a {
+	          &,
+	          &:hover,
+	          &:focus {
+	            color: #{nth($color,3)};
+	            background-color: darken(nth($color,2), 5%);
+	          }
+	        }
+	        > .disabled > a {
+	          &,
+	          &:hover,
+	          &:focus {
+	            color: darken(nth($color,2), 5%);
+	            background-color: transparent;
+	          }
+	        }
+	      }
+	    }
+	  }
+	
+	  // Links in navbars
+	  //
+	  // Add a class to ensure links outside the navbar nav are colored correctly.
+	  .navbar-link {
+	    color: #{nth($color,3)};
+	    &:hover {
+	      color: #{nth($color,3)};
+	    }
+	  }
+	
+	  .btn-link {
+	    color: #{nth($color,3)};
+	    &:hover,
+	    &:focus {
+	      color: #{nth($color,3)};
+	    }
+	    &[disabled],
+	    fieldset[disabled] & {
+	      &:hover,
+	      &:focus {
+	        color: #{nth($color,3)};
+	        @include opacity (0.5);
+	      }
+	    }
+	  }
+	}
+}

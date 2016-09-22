@@ -1,0 +1,10 @@
+// Box sizing
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+	-moz-box-sizing: $boxmodel;
+  box-sizing: $boxmodel;
+}

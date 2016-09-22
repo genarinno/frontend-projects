@@ -1,0 +1,130 @@
+// Sections
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+.section-goo-main {
+	padding: 50px 0 50px;
+	.section-goo-left {
+		text-align: right;
+		padding-top: 20px;
+		i {
+			float: right;
+		}
+	}
+	.section-goo-middle {
+		text-align: center;
+		padding-top: 20px;
+	}
+	.section-goo-right {
+		text-align: left;
+		padding-top: 20px;
+		i {
+			float: left;
+		}
+	}
+	@media (max-width: 991px) {
+		.section-goo-left,
+		.section-goo-right {
+			text-align: center;
+		}
+	}
+}	
+
+// Shop
+.section-goo-shop {
+	text-align: left;
+	.alert {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+	.table {
+	  > thead,
+	  > tbody,
+	  > tfoot {
+	    > tr {
+	      > th {
+	        border-top: 0px !important;
+	      }
+	    }
+	  }
+  }
+	.img-thumbnail {
+		height: 34px;
+		width: auto;
+	}
+	.padding {
+		padding-top: 15px;
+	}
+}
+
+// Blog
+.section-goo-blog {
+	a {
+		color: $body-color;
+	}
+	.blog-header {
+		text-transform: uppercase;
+		padding: 10px 0;
+		i {
+			padding-left: 12px;
+			padding-right: 2px;
+		}
+	}
+	.blog-content {
+		text-align: justify;
+		border-top: $border-thin $border-solid $border-color;
+		padding: 10px 0;
+		h3 {
+			margin-top: 0px;
+		}
+	}
+	.blog-categories {
+		border-top: $border-thin $border-solid $border-color;
+		padding: 10px 0;
+		i, p {
+			color: $body-color;
+		}
+		.label {
+			position: relative;
+			font-size: 9px;
+			@include border-radius($border-radius-circle);
+		}
+	}
+}
+
+// Gallery
+.section-goo-gallery {
+	p {
+		font-size: $font-size-base;
+	}
+	img,
+	video,
+	iframe,
+	embed,
+	object
+	 {
+		width: 100%;
+		height: auto;
+	}
+	.dropdown-header {
+		color: $goo;
+		font-size: $font-size-large;
+		font-weight: $font-weight-semibold;
+	}
+	.form-group {
+		margin-bottom: 3px;
+	}
+}
+
+// Footer
+.section-goo-footer {
+	margin: 20px 0 10px;
+}
+
+@each $color in $colors-list {
+	.section-goo-#{nth($color,1)} {
+		padding: 50px 0 50px;
+		text-align: center;
+	}
+}

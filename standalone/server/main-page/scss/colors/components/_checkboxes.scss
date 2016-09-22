@@ -1,0 +1,25 @@
+// Checkboxes
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+
+
+@each $color in $colors-list {
+	.checkbox-goo-#{nth($color,1)} input[type="checkbox"]:checked + label::before,
+	.checkbox-goo-#{nth($color,1)} input[type="radio"]:checked + label::before {
+	  background-color: #{nth($color,2)};
+	  border-color: #{nth($color,2)};
+	}
+	.checkbox-goo-#{nth($color,1)} input[type="checkbox"]:checked + label::after,
+	.checkbox-goo-#{nth($color,1)} input[type="radio"]:checked + label::after {
+	  color: #{nth($color,3)};
+	}
+	.checkbox-goo-#{nth($color,1)} input[type="checkbox"]:indeterminate + label::before,
+	.checkbox-goo-#{nth($color,1)} input[type="radio"]:indeterminate + label::before {
+	  background-color: #{nth($color,2)};
+	  border-color: #{nth($color,2)};
+	}
+	.checkbox-goo-#{nth($color,1)} input[type="checkbox"]:indeterminate + label::after,
+	.checkbox-goo-#{nth($color,1)} input[type="radio"]:indeterminate + label::after {
+	  background-color: #{nth($color,3)};
+	}
+}
