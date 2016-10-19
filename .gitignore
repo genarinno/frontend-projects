@@ -218,6 +218,9 @@ pip-log.txt
 #############
 ## Custom jsbuenos
 #############
-node_modules/
+node_modules/*
+!node_modules/angular/
+
+
 
 
