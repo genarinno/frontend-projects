@@ -2,7 +2,7 @@
 var angularRoutingApp = angular.module("angularRoutingApp", ["ngRoute"]);
 
 // Create routes
-angularRoutingApp.config(function($routeProvider, $locationProvide) {
+angularRoutingApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider
         .when("/", {
@@ -11,7 +11,7 @@ angularRoutingApp.config(function($routeProvider, $locationProvide) {
         })
         .when("/cartodb", {
             templateUrl : "pages/cartodb.html",
-            controller  : "aboutController"
+            controller  : "cartodbController"
         })
         .when("/loader", {
             templateUrl : "pages/loader.html",
@@ -33,9 +33,8 @@ angularRoutingApp.config(function($routeProvider, $locationProvide) {
             redirectTo: "/"
         });
 
-         // use the HTML5 History API
-        $locationProvider.html5Mode(true);
-});
+        $locationProvider.html5Mode(true, false);
+}]);
 
 angularRoutingApp.controller("mainController", function($scope) {
     $scope.message = "Home!";
