@@ -2,7 +2,7 @@
 var angularRoutingApp = angular.module("angularRoutingApp", ["ngRoute"]);
 
 // Create routes
-angularRoutingApp.config(function($routeProvider) {
+angularRoutingApp.config(function($routeProvider, $locationProvide) {
 
     $routeProvider
         .when("/", {
@@ -32,6 +32,9 @@ angularRoutingApp.config(function($routeProvider) {
         .otherwise({
             redirectTo: "/"
         });
+
+         // use the HTML5 History API
+        $locationProvider.html5Mode(true);
 });
 
 angularRoutingApp.controller("mainController", function($scope) {
