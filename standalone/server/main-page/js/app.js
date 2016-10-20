@@ -1,35 +1,59 @@
 // Create the module
-var angularRoutingApp = angular.module('angularRoutingApp', ['ngRoute']);
+var angularRoutingApp = angular.module("angularRoutingApp", ["ngRoute"]);
 
 // Create routes
 angularRoutingApp.config(function($routeProvider) {
 
     $routeProvider
-        .when('/', {
-            templateUrl : 'pages/home.html',
-            controller  : 'mainController'
+        .when("/", {
+            templateUrl : "pages/home.html",
+            controller  : "mainController"
         })
-        /*.when('/acerca', {
-            templateUrl : 'pages/acerca.html',
-            controller  : 'aboutController'
+        .when("/cartodb", {
+            templateUrl : "pages/cartodb.html",
+            controller  : "aboutController"
         })
-        .when('/contacto', {
-            templateUrl : 'pages/contacto.html',
-            controller  : 'contactController'
+        .when("/loader", {
+            templateUrl : "pages/loader.html",
+            controller  : "loaderController"
+        })
+        .when("/modal", {
+            templateUrl : "pages/modal.html",
+            controller  : "modalController"
+        })
+        .when("/paginator", {
+            templateUrl : "pages/paginator.html",
+            controller  : "paginatorController"
+        })
+        .when("/textwrapper", {
+            templateUrl : "pages/textWrapper.html",
+            controller  : "textWrapperController"
         })
         .otherwise({
-            redirectTo: '/'
-        })*/;
+            redirectTo: "/"
+        });
 });
 
-angularRoutingApp.controller('mainController', function($scope) {
-    $scope.message = 'Hola, Mundo!';
+angularRoutingApp.controller("mainController", function($scope) {
+    $scope.message = "Home!";
 });
 
-angularRoutingApp.controller('aboutController', function($scope) {
-    $scope.message = 'Esta es la página "Acerca de"';
+angularRoutingApp.controller("cartodbController", function($scope) {
+    $scope.message = "CartoDB";
 });
 
-angularRoutingApp.controller('contactController', function($scope) {
-    $scope.message = 'Esta es la página de "Contacto", aquí podemos poner un formulario';
+angularRoutingApp.controller("loaderController", function($scope) {
+    $scope.message = "Loader";
+});
+
+angularRoutingApp.controller("modalController", function($scope) {
+    $scope.message = "Modal";
+});
+
+angularRoutingApp.controller("paginatorController", function($scope) {
+    $scope.message = "Paginator";
+});
+
+angularRoutingApp.controller("textWrapperController", function($scope) {
+    $scope.message = "textWrapper";
 });

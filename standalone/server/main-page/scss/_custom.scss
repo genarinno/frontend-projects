@@ -45,4 +45,29 @@ html,body{
 
 .page{
 	background-color: yellow;
+
+	&.page-home{
+		background-color: #E3E3E3; 
+	}
+
+	&.page-cartodb{
+		background-color: #E5E5E5; 
+	}
+
+	&.page-loader{
+		background-color: #E8E8E8; 
+	}
+
+	&.page-modal{
+		background-color: #EBEBEB; 
+	}
+
+	&.page-paginator{
+		background-color: #F0F0F0; 
+	}
+
+	&.page-textwrapper{
+		background-color: #F7F7F7; 
+	}
+
 }
