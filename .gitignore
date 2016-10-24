@@ -218,9 +218,22 @@ pip-log.txt
 #############
 ## Custom jsbuenos
 #############
+
+#Node modules
 node_modules/*
 !node_modules/angular/
 !node_modules/angular-route/
+
+#Route locally with Node server
+server.js
+app.js
+levanta-server.txt
+projects/*
+
+
+
+
+
 
 
 
