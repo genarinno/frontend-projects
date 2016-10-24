@@ -226,7 +226,6 @@ node_modules/*
 
 #Route locally with Node server
 server.js
-app.js
 levanta-server.txt
 projects/*
 
