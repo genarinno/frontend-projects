@@ -8,19 +8,9 @@ var config = require('../config'),
 	handleErrors = require('../util/handleErrors'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
-    rename = require("gulp-rename"),
-    _replace = require('gulp-replace'),
-    debug = require('gulp-debug');
+    replace = require('gulp-replace');
 
-var replaceForMin = function(source, ext){
-    return _replace(source, '')
-    .pipe(rename({
-            extname: ext
-        })
-    );
-};
-
-gulp.task('styles-nav', function() {
+gulp.task('styles-old', function() {
     gulp.src(config.styles.src)
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -32,13 +22,9 @@ gulp.task('styles-nav', function() {
             browsers: ['last 2 versions', 'IE 9', 'Safari >= 7'],
             cascade: false
         }))
-        .pipe(replaceForMin(".css", ".min.css"))
-        .pipe(sourcemaps.write('./', {
-            mapFile: function(mapFilePath) {
-                 return mapFilePath.replace('.css.map', '.min.css.map');
-            }
-        }))
-        .pipe(_replace('..\/', '../../'))
+        .pipe(sourcemaps.write('./'))
+        .pipe(replace('..\/', '../../'))
+        .pipe(replace('..\/', '../../'))
         .pipe(gulp.dest(config.styles.dest))
         .pipe(gulpif(browserSync.active, browserSync.reload({
             stream: true,
