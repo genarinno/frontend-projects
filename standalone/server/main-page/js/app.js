@@ -1,61 +1,77 @@
 // Create the module
-var angularRoutingApp = angular.module("angularRoutingApp", ["ngRoute"]);
+var angularRoutingApp = angular.module("angularRoutingApp", ["ui.router"]);
 
 // Create routes
-angularRoutingApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
-    $routeProvider
-        .when("/", {
-            templateUrl : "pages/home.html",
-            controller  : "mainController"
+angularRoutingApp.config( function($stateProvider, $urlRouterProvider, $locationProvider) {
+    
+    $stateProvider
+        .state("index", {
+            url: "/",
+            views:{
+                "page":{
+                     templateUrl: "pages/home.html"
+                },
+                "menu":{
+                     templateUrl: "pages/menu.html"
+                }
+            }
         })
-        .when("/cartodb", {
-            templateUrl : "pages/cartodb.html",
-            controller  : "cartodbController"
+        .state("cartodb", {
+            url: "/cartodb",
+            views:{
+                "page":{
+                     templateUrl: "pages/cartodb.html"
+                },
+                "menu":{
+                     templateUrl: "pages/menu.html"
+                }
+            }
         })
-        .when("/loader", {
-            templateUrl : "pages/loader.html",
-            controller  : "loaderController"
+        .state("loader", {
+            url: "/loader",
+            views:{
+                "page":{
+                     templateUrl: "pages/loader.html"
+                },
+                "menu":{
+                     templateUrl: "pages/menu.html"
+                }
+            }
         })
-        .when("/modal", {
-            templateUrl : "pages/modal.html",
-            controller  : "modalController"
+        .state("modal", {
+            url: "/modal",
+            views:{
+                "page":{
+                     templateUrl: "pages/modal.html"
+                },
+                "menu":{
+                     templateUrl: "pages/menu.html"
+                }
+            }
         })
-        .when("/paginator", {
-            templateUrl : "pages/paginator.html",
-            controller  : "paginatorController"
+        .state("paginator", {
+            url: "/paginator",
+            views:{
+                "page":{
+                     templateUrl: "pages/paginator.html"
+                },
+                "menu":{
+                     templateUrl: "pages/menu.html"
+                }
+            }
         })
-        .when("/textwrapper", {
-            templateUrl : "pages/textWrapper.html",
-            controller  : "textWrapperController"
-        })
-        .otherwise({
-            redirectTo: "/"
+        .state("textwrapper", {
+            url: "/textwrapper",
+            views:{
+                "page":{
+                     templateUrl: "pages/textWrapper.html"
+                },
+                "menu":{
+                     templateUrl: "pages/menu.html"
+                }
+            }
         });
 
-        $locationProvider.html5Mode(true, false);
-}]);
-
-angularRoutingApp.controller("mainController", function($scope) {
-    $scope.message = "Home!";
-});
-
-angularRoutingApp.controller("cartodbController", function($scope) {
-    $scope.message = "CartoDB";
-});
-
-angularRoutingApp.controller("loaderController", function($scope) {
-    $scope.message = "Loader";
-});
-
-angularRoutingApp.controller("modalController", function($scope) {
-    $scope.message = "Modal";
-});
-
-angularRoutingApp.controller("paginatorController", function($scope) {
-    $scope.message = "Paginator";
-});
-
-angularRoutingApp.controller("textWrapperController", function($scope) {
-    $scope.message = "textWrapper";
+        $locationProvider.html5Mode(true);
+        $urlRouterProvider.otherwise("/");
 });

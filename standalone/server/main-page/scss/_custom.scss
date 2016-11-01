@@ -2,8 +2,16 @@ html,body{
 	background-color:#F6F6F6;
 	font-family: Lato, "Helvetica Neue", Helvetica,Arial,sans-serif;
 	width:100%;//TAKE CARE JAVI
-	height:100%;//TAKE CARE JAVI
 }
+
+html{
+	height: 100%;
+	font-size: 16px;
+}
+
+/*body{
+	height: auto !important;
+}*/
 
 .goo{
 	.navbar-primary{
@@ -52,42 +60,102 @@ html,body{
 @for $i from 1 through 6 {
     h#{7 - $i} {
         @extend %main-text-color;
+        font-family: Ubuntu, Lato, sans-serif;
+        text-align: left;
     }
 }
+h1{
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+/*article{
+	h4{
+		text-align: left;	
+	}
+}*/
 
 div,a,p,ul,li{
 	@extend %main-text-color;
 }
 
 //PARAGRAPHS
-h1{
+body h1{
 	text-transform: uppercase;
     text-align: center;
-	font-weight: bold;
+	font-size: 46px;
+}
+
+section{
+	margin-bottom: 35px;
+}
+
+article{
+	font-size: 18px;
+    font-family: Ubuntu,Lato,sans-serif;
+    width: 80%;
+    margin: 0 auto;
+
+    h2{
+    	margin-top: 20px;
+    	margin-bottom: 10px;
+    }
+}
+
+figure{
+	width: 80%;
+	min-width: 740px;
+	padding: 5px;
+
+	h3{
+		text-align: center;
+	}
+
+	&.center-example{
+		margin: 0 auto;
+	}
+}
+
+section{
+	&.package-managers,
+	&.browser-support
+	{
+		article > div{
+			margin-top: 25px;
+		}
+	}
+
+	a{
+		color: #FF6B09;
+
+		&:hover{
+			color: #FF6B09;
+		}
+	}
 }
 
 //---Main Page Container
 #main{
 	width:100%;
-	height:100%;
+	height:auto;
 	position: relative;
 	display: block;
 	margin-top: 53px;
 }
 
-.ng-scope,
-.page{
-	width: 100%;
-	position: relative;
-	display: block;
-}
-
 
 //---Pages
 .page{
+	width: 100%;
 	position: relative;
     display: block;
-    padding: 20px 100px;
+    padding: 20px 50px;
+    background-color: #F0F0F0;
+    max-width: 1280px;
+    margin: 0 auto;
+    border: 2px solid white;
+    border-top: none;
+    border-bottom: none;
 }
 
 .page{
@@ -117,5 +185,271 @@ h1{
 		background-color: #F7F7F7; 
 	}
 }
+
+.navbar-brand{ 
+	i{
+		background-image: url("../front-end/images/icons/menu-icon.png");
+		background-size: 46px 25px;
+	    position: relative;
+	    display: inline-block;
+	    height: 25px;
+	    width: 46px;
+	    background-repeat: no-repeat;
+	    float: left;
+	    margin-top: -3px;
+	    margin-right: 30px;
+    }
+
+    div{
+    	position: relative;
+	    display: inline-block;
+    	color: #F6F6F6;
+    	float: right;
+    }
+}
+
+//figures
+#intro-example{
+	.example-container{
+		border: 2px dashed #333;
+    	padding: 20px 10px;
+    	border-radius: 10px;
+	}
+	
+	.box-cont{
+		position: relative;
+    	display: block;
+    	width: 80%;
+    	height: 200px;
+    	border: 2px solid #ddd;
+    	margin-bottom: 10px;
+    	margin: 0 auto;
+    	//background-color: #a0a0a0;
+    	overflow: hidden;
+	}
+
+	.box-carousel{
+		position: absolute;
+		display: block;
+		width: 1000%;
+		height: 100%;
+	}
+
+	.box{
+		position: relative;
+		display: inline-block;
+		width:10%;
+		height: 100%;
+		padding:2px;
+		
+		@for $i from 1 through 10 {
+			&.box#{$i}{
+				.inner-box{
+					$red: random(10);
+					$green: random(10);
+					$blue: random(10);
+					$rand: 220 - random(50);
+					/*$red: random(256)-1;
+					$green: random(256)-1;
+					$blue: random(256)-1;
+			       	background-color: rgba($red, $green, $blue, 0.8);*/
+			       	background-color: rgba($rand + $red, $rand + $green, $rand + $blue, 1);
+				}
+			}
+		}
+
+		.inner-box{
+			width: 100%;
+    		height: 100%;
+    		position: relative;
+    		display: block;
+    		box-shadow: inset 0 0 20px #FFFFFF;
+    		-webkit-box-shadow: inset 0 0 20px #FFFFFF;
+			-moz-box-shadow: inset 0 0 20px #FFFFFF;
+			text-align: center;
+		}
+
+		.box-page{
+			position: relative;
+			display: inline-block;
+			font-family: Ubuntu, Lato, sans-serif;
+        	font-weight: bold;
+        	font-size: 32px;
+        	z-index: 2;
+		    line-height: 192px;
+		}
+	}
+}
+
+//HIGHLIGHT
+.highlight{
+	code, kbd, pre, samp {
+		font-family: 'Source Code Pro', monospace;
+
+		font-size: 16px;
+	}
+}
+
+//PACKAGE MANAGERS
+//Download Cont
+.package-manual-cont{
+	a{
+		display: block;
+    	width: 12em;
+    	margin: 0 auto;
+    	padding: 1em;
+    	text-align: center;
+    	background-image: linear-gradient(to bottom,#FF6B09 0,#D55500 100%);
+    	border-color: #FF8C00 #FF8C00 #cc7000 !important;
+    	border-bottom: 3px solid #ffba66 !important;
+    	border-style: solid;
+    	border-width: 0.1em;
+    	border-radius: 0.2em;
+    	text-decoration: none;
+    	font-weight: bold;
+    	font-size: 120%;
+    	text-shadow: black 1px 1px 2px;
+    	color: white;
+
+    	&:hover{
+    		color: #333333;
+    	}
+	}
+}
+
+//BROWSER SUPPORT
+.browser-support-cont{
+	display:block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	//margin-top: 25px;
+}
+
+.browser-support-wrapper{
+	display:block;
+	position: relative;
+	width: 100%;
+	height: 150px;
+	text-align: justify;
+
+	> div{
+		position: relative;
+		display: inline-block;
+		width: 12%;
+		height: 100%;
+		padding: 10px;
+		text-align: center;
+
+		&:after {
+  			content: '';
+  			display: inline-block;
+  			width: 100%;
+		}
+	
+		> div{
+			position: relative;
+			display: block;
+			height: 120px;
+			width: 100%;
+			
+			+ span{
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 30px;
+				font-size: 12px;
+				text-align: center;
+			}
+		}
+
+		> div{
+			margin: 0 auto;
+    		position: relative;
+    		display: block;
+    	}
+
+
+		&.browser-ie-cont{
+			> div{
+				background: url("../front-end/images/svg/explorer.svg") no-repeat;
+				background-size: contain;
+	    		background-position: center;
+			}
+		}
+
+		&.browser-chrome-cont{
+			> div{
+				background: url("../front-end/images/svg/chrome.svg") no-repeat;
+				background-size: contain;
+	    		background-position: center;
+			}
+		}
+		
+		&.browser-firefox-cont{
+			> div{
+				background: url("../front-end/images/svg/firefox.svg") no-repeat;
+				background-size: contain;
+	    		background-position: center;
+			}
+		}
+
+		&.browser-safari-cont{
+			> div{
+				background: url("../front-end/images/svg/safari.svg") no-repeat;
+				background-size: contain;
+	    		background-position: center;
+			}
+		}
+
+		&.browser-opera-cont{
+			> div{
+				background: url("../front-end/images/svg/opera.svg") no-repeat;
+				background-size: contain;
+	    		background-position: center;
+			}
+		}
+
+		&.browser-ios-cont{
+			> div{
+				background: url("../front-end/images/svg/ios.svg") no-repeat;
+				background-size: contain;
+	    		background-position: center;
+			}
+		}
+
+		&.browser-android-cont{
+			> div{
+				background: url("../front-end/images/svg/android.svg") no-repeat;
+				background-size: contain;
+	    		background-position: center;
+			}
+		}
+
+	}
+
+	.stretch {
+    	width: 100%;
+    	display: inline-block;
+    	font-size: 0;
+    	line-height: 0
+	}
+}
+
+.browser-support-note{
+	font-size: 14px;
+}
+
+//STYLES
+.styles-usage-cont{
+	> div{
+		margin-bottom:20px;
+
+		h4{
+			font-style: italic;
+		}
+	}
+}
+
 
 

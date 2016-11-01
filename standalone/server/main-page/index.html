@@ -1,148 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='angularRoutingApp'>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/projects/front-end/">
-    <title>Paginator</title>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <base href="/projects/front-end/">
+	    <title>Paginator</title>
 
-    <!-- IMAGES 1-->
-    <!-- [FAVICON] -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" />
-	<link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32" />
-	<link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16" />
-	<meta name="application-name" content="JsBuenos"/>
-	<!-- <meta name="msapplication-TileColor" content="#E3E3E3" /> -->
-	<meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png" />
-    
-    <!-- CSS -->
-    <!-- Vendor CSS -->
-	<link type="text/css" href="css/vendor/bootstrap.min.css" rel="stylesheet"/>
-	<link type="text/css" href="css/vendor/font-awesome.min.css" rel="stylesheet"/>
-	<!--<link type="text/css" href="assets/vendor/animate/css/animate.min.css" rel="stylesheet"/>-->
-	<!--<link type="text/css" href="assets/vendor/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" rel="stylesheet"/>-->
+	    <!-- IMAGES 1-->
+	    <!-- [FAVICON] -->
+	    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" />
+		<link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16" />
+		<meta name="application-name" content="JsBuenos"/>
+		<meta name="msapplication-TileColor" content="#F00000" />
+		<meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png" />
+	    
+	    <!-- CSS -->
+	    <!-- Vendor CSS -->
+		<link type="text/css" href="css/vendor/bootstrap.min.css" rel="stylesheet"/>
+		<link type="text/css" href="css/vendor/font-awesome.min.css" rel="stylesheet"/>
+		<!--<link type="text/css" href="assets/vendor/animate/css/animate.min.css" rel="stylesheet"/>-->
+		<!--<link type="text/css" href="assets/vendor/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" rel="stylesheet"/>-->
 
-	<!-- Navbar and demo CSS -->
-	<link type="text/css" href="css/navbar.min.css" rel="stylesheet"/>
-	<!-- <link type="text/css" href="css/demo.min.css" rel="stylesheet"/> -->
+		<!-- Navbar and demo CSS -->
+		<link type="text/css" href="css/navbar.min.css" rel="stylesheet"/>
+		<!-- <link type="text/css" href="css/demo.min.css" rel="stylesheet"/> -->
 
-	<!-- [HIGHLIGHTS] To style the code -->
-	<link rel="stylesheet" href="css/vendor/highlight/styles/default.css">
+		<!-- [HIGHLIGHTS] To style the code -->
+		<!-- <link rel="stylesheet" href="css/vendor/highlight/styles/default.css"> -->
+		<link rel="stylesheet" href="css/vendor/highlight/styles/github.css">
 
-    <!-- FONTS -->
-    <!-- [Google Fonts] -->
-	<link type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,600,700" rel="stylesheet"/>
+	    <!-- FONTS -->
+	    <!-- [Google Fonts] -->
+		<link type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,600,700" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
 
-	<!-- JS -->
-	<!-- [jQuery] (necessary for Bootstrap's JavaScript plugins) -->
-	<script type="text/javascript" src="js/vendor/__jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="js/vendor/jquery.cookie.min.js"></script> 
+		<!-- JS -->
+		<!-- [jQuery] (necessary for Bootstrap's JavaScript plugins) -->
+		<script type="text/javascript" src="js/vendor/__jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/vendor/jquery.cookie.min.js"></script> 
 
-	<!-- [MENU] Include all compiled plugins (below), or include individual files as needed -->
-	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
-	<script type="text/javascript" src="js/navbar.min.js"></script>
-	<script type="text/javascript" src="js/demo.min.js"></script>
+		<!-- [MENU] Include all compiled plugins (below), or include individual files as needed -->
+		<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
+		<script type="text/javascript" src="js/navbar.min.js"></script>
+		<script type="text/javascript" src="js/demo.min.js"></script>
 
-    <!-- [HIGHLIGHTS] To style the code -->
-    <script type="text/javascript"  src="js/vendor/highlight/highlight.pack.js"></script>
+	    <!-- [HIGHLIGHTS] To style the code -->
+	    <script type="text/javascript"  src="js/vendor/highlight/highlight.pack.js"></script>
 
-    <!-- IMAGES 2 -->
-</head>
-<body class="goo">
-	<nav class="navbar navbar-primary navbar-fixed-top" animation="true" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-			    <div class="hamburger navbar-toggle collapsed" hamburger="1" data-toggle="collapse" data-target="#responsive-menu" aria-expanded="false">
-		          	<div class="hamburger-box">
-		            	<div class="hamburger-inner"></div>
-		          	</div>
-		        </div>
-			    <a class="navbar-brand" href="#">Front End Projects</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="responsive-menu">
-				<ul class="nav navbar-nav navbar-left">
-			        <li class="active">
-			        	<a href="index.html">
-				        	<i class="fa fa-home hidden-xs" aria-hidden="true"></i> 
-				        	<span class="sr-only">(current)</span>
-				        	<span class="hidden-sm hidden-md hidden-lg">Home</span>
-			        	</a>
-			        </li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle">Paginator<b class="caret"></b></a>
-					 	<ul class="dropdown-menu" role="menu">
-					  		<li><a href="paginator/">Paginator simple</a></li>
-					  		<li><a href="paginator/">Paginator complex</a></li>
-					  		<li><a href="paginator/">Paginator mix</a></li>
-						</ul>
-						<!-- /.dropdown-menu -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle">Text Wrapper<b class="caret"></b></a>
-					 	<ul class="dropdown-menu" role="menu">
-					  		<li><a href="textwrapper/">Text Wrapper simple</a></li>
-					  		<li><a href="textwrapper/">Text Wrapper complex</a></li>
-					  		<li><a href="textwrapper/">Text Wrapper mix</a></li>
-						</ul>
-						<!-- /.dropdown-menu -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a href="loader/" data-toggle="dropdown" class="dropdown-toggle">Loader<b class="caret"></b></a>
-					 	<ul class="dropdown-menu" role="menu">
-					  		<li><a href="loader/">Loader simple</a></li>
-					  		<li><a href="loader/">Loader complex</a></li>
-					  		<li><a href="loader/">Loader mix</a></li>
-						</ul>
-						<!-- /.dropdown-menu -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle">CartoDB Maps<b class="caret"></b></a>
-					 	<ul class="dropdown-menu" role="menu">
-					  		<li><a href="cartodb/">CartoDB Maps simple</a></li>
-					  		<li><a href="cartodb/">CartoDB Maps complex</a></li>
-					  		<li><a href="cartodb/">CartoDB Maps mix</a></li>
-						</ul>
-						<!-- /.dropdown-menu -->
-					</li>
-					<!-- /.dropdown -->
-					<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle">Modal<b class="caret"></b></a>
-					 	<ul class="dropdown-menu" role="menu">
-					  		<li><a href="modal/">Modal simple</a></li>
-					  		<li><a href="modal/">Modal complex</a></li>
-					  		<li><a href="modal/">Modal mix</a></li>
-						</ul>
-						<!-- /.dropdown-menu -->
-					</li>
-					<!-- /.dropdown -->
-				</ul>
-				<!-- /.navbar-right -->
-			</div>
-			<!-- /.navbar-collapse -->
+	    <!-- AngularJS -->
+		<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
+		<script type="text/javascript" src="js/vendor/angular/ui-route/release/angular-ui-router.min.js"></script> 
+		<!-- <script type="text/javascript" src="js/vendor/angular/route/angular-route.min.js"></script>   -->
+		<script type="text/javascript" src="js/app.js"></script> 
+
+	    <!-- IMAGES 2 -->
+	</head>
+	<body class="goo" ng-app='angularRoutingApp'>
+		<nav class="navbar navbar-primary navbar-fixed-top" animation="true" role="navigation" ui-view="menu"></nav>
+		<!-- <div id="menu" ng-include="pages/menu.html" ng-controller="MenuController"></div> -->
+		<div id="main" ui-view="page">
+			
+			<!-- <div ng-view></div> --> 	
 		</div>
-		<!-- /.container -->
-	</nav>
-<div id="main">
-	<div ng-view></div> 
-	<!-- <div class="c-paginator">Paginator</div> -->		
-</div>
-<!-- AngularJS -->
-<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
-<script type="text/javascript" src="js/vendor/angular/route/angular-route.min.js"></script>  
-<script type="text/javascript" src="js/app.js"></script>  
-</body>
+		
+	</body>
 </html>

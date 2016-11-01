@@ -2,7 +2,8 @@
 :: Common Paginator Variables
 -------------------------------------------------*/
 var pagClass = ".c-paginator",
-    _paginator;//Default paginator variable when use one instance alone
+    idCounter = 0,
+    asyncPaginators = {};
 
 /*--------------------------------------------------
 :: Paginator function services
@@ -68,7 +69,6 @@ function updatePageCounter(current, nPages) {
     $(".c-paginator__counter-current",  this.$counter).html(current);
     $(".c-paginator__counter-total",  this.$counter).html(nPages);
 }  
-
 
 //Updates the data of the page links whether it would be necessary
 function managePageLinks(nPages, newPage, maxPagesShown) {
@@ -299,6 +299,8 @@ function clickActionLink($newPageLink) {
                     updatePageCounter.call(this, newPage, this.nPages);
 
                     if(this.settings.triggerEvent){
+                        console.log(newPage);
+                        console.log(this.id);
                         this.$main.trigger("onPageChange", newPage);
                     }
                 }
@@ -418,18 +420,21 @@ function createPageLinks(nPages, current, maxPagesShown) {
 --------------------------------------------------*/
 function Paginator($parent, _nItemsPage, _nItemsTotal, _nPagesShown, current, settingsTheme) {
     //Data vars
+    this.id = idCounter; 
+    idCounter++;
+
     this.nItemsPage = 5,
-    this.nItemsTotal = 100,
+    this.nItemsTotal = 45,//50 //100
     this.nPages = Math.ceil(this.nItemsTotal / this.nItemsPage),
-    this.nPagesShown = 10, //Min 3
+    this.nPagesShown = 7, //10 //Min 3
     this.settings = {
         allResponsive: false,
-        triggerEvent: false,
-        collapseAllCntrl:false
+        triggerEvent: true,
+        collapseAllCntrl:true
     },
     
     //jQuery selectors
-    this.$main = null,
+    this.$main = this.$main || null,
     this.$nav = null,
     this.$counter = null;
 
@@ -454,7 +459,7 @@ function Paginator($parent, _nItemsPage, _nItemsTotal, _nPagesShown, current, se
         settingsTheme = typeof settingsTheme === "object" ? settingsTheme : {};  
 
         init.call(this, _nItemsPage, _nItemsTotal, _nPagesShown, settingsTheme);
-        this.$main = ($parent instanceof $) ? $parent.find(pagClass) : $(pagClass);
+        this.$main = this.$main || (($parent instanceof $) ? $parent.find(pagClass) : $(pagClass));
 
         if (this.nPagesShown > 1) {
             createPageLinks.call(this, this.nPages, current, this.nPagesShown);
@@ -475,7 +480,13 @@ function Paginator($parent, _nItemsPage, _nItemsTotal, _nPagesShown, current, se
 
 //Removes the content of the paginator
 Paginator.prototype.remove = function() {
+    var instance = "paginator_" + this.id;
+    
     this.$main.empty();
+
+    if(asyncPaginators.hasOwnProperty(instance)){
+        asyncPaginators[instance] = null;
+    }
 };
 
 //Goes to a link of paginator
@@ -504,7 +515,19 @@ Paginator.prototype.goLink = function(indexLink, indexOldLink){
 //When the DOM has been created, create the links inside the container properly
 $(document).ready(function() {
     if (($(pagClass).is("*")) && ($(pagClass).data("isAsync") !== true)) {
-        _paginator = new Paginator();
+
+        //Filter paginators whose want to be initialized on load document
+        var $pagSync = $(pagClass).filter(function(){
+            return $(this).data("isAsync") !== true;
+        });
+
+        //Create the instance of each paginator
+        $pagSync.each(function() {
+            var Prebound = Object.create(Paginator.prototype || Object.prototype);
+            
+            Prebound.$main = $(this);
+            asyncPaginators["paginator_" + idCounter] = Paginator.call(Prebound) || Prebound;
+        });
     }
 
 });

@@ -1,7 +1,315 @@
 <link type="text/css" href="css/paginator/paginator.css" rel="stylesheet">
+<script type="text/javascript">
+	window.JSBUENOS = {};
+	window.JSBUENOS.page = "paginator.home";
+</script>
 <script type="text/javascript"  src="js/paginator/paginator.js"></script>
+<script type="text/javascript"  src="js/paginator/page.js"></script>
+
 <div class="page page-paginator">
+
 	<h1 class="title1">Paginator</h1>
-	<div class="c-paginator">Paginator</div>
+	<!--USAGE MANUAL-->
+	<section id="usage-manual" class="usage-manual">
+		<article>
+			<h2>Usage Manual</h2>
+			<!-- [Basic]-->
+			<div class="basic-usage-cont">
+				<h3 class="basic-usage">Basic usage</h3>
+				<div class="basic-usage-desc-cont">
+					<p>The basic component is pretty easy to use initially, just need seconds to have it ready. There are some other different configurations available to setting up which needs a bit more of work, but it's not a big deal to manage with it and with the following guide you'll get it as easy as child's play.</p>
+					<p>As the example below, just insert the html div tag in your targeted container.</p>
+
+				</div>
+				<div class="highlight highlight-text-html-basic">
+					
+<pre><code class="html">&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Other content on body --&gt;
+    &lt;div&gt;
+      &lt;!-- Content to be paginated or other stuff --&gt;
+      &lt;!-- Paginator cont --&gt;
+        &lt;div class="c-paginator style-1"&gt;&lt;/div&gt;
+      &lt;!-- --&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				</div>
+				<div class="basic-usage-desc2-cont">
+					<p>And this will produce this:</p>
+				</div>
+				<div class="basic-usage-paginator-cont">
+					<div class="c-paginator style-1 basic-usage-paginator"></div>
+				</div>
+			</div>
+			<!-- [Styles]-->
+			<div class="styles-usage-cont">
+				<h3 class="styles-usage">Styles usage</h3>
+				<div class="styles-usage-desc-cont">
+					<p>To style your paginator component and its elements, you just apply some of those styles below modifying the class or injecting key parameters on data-params attribute:</p>
+				</div>
+
+				<!-- [Style 1]-->
+				<div class="styles-usage-style1-cont">
+					<h4 class="styles-usage-style1">Style 1 (Default)</h4>
+					<div class="highlight highlight-text-html-basic">
+<pre><code class="html"> &lt;div class="c-paginator"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style1-cont">
+						<div class="c-paginator"></div>
+					</div>
+				</div>
+
+				<!-- [Style 2]-->
+				<div class="styles-usage-style2-cont">
+					<h4 class="styles-usage-style2">Style 2 (Edifice)</h4>
+					<div class="highlight highlight-text-html-basic">
+<pre><code class="html"> &lt;div class="c-paginator style-2"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style2-cont">
+						<div class="c-paginator style-2"></div>
+					</div>
+				</div>
+
+				<!-- [Style 3]-->
+				<div class="styles-usage-style3-cont">
+					<h4 class="styles-usage-style3">Style 3 (T-Rex)</h4>
+					<div class="highlight highlight-text-html-basic">
+<pre><code class="html"> &lt;div class="c-paginator style-3"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style3-cont">
+						<div class="c-paginator style-3"></div>
+					</div>
+				</div>
+
+				<!-- [Style 4]-->
+				<div class="styles-usage-style4-cont">
+					<h4 class="styles-usage-style4">Style 4 (Oprah)</h4>
+					<div class="highlight highlight-text-html-basic">
+			<pre><code class="html"> &lt;div class="c-paginator style-4"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style4-cont">
+						<div class="c-paginator style-4"></div>
+					</div>
+				</div>
+
+				<!-- [Style 5]-->
+				<div class="styles-usage-style5-cont">
+					<h4 class="styles-usage-style5">Style 5 (Soap)</h4>
+					<div class="highlight highlight-text-html-basic">
+			<pre><code class="html"> &lt;div class="c-paginator style-5"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style4-cont">
+						<div class="c-paginator style-5"></div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+	
+	<!--INTRO-->
+	<section id="intro" class="intro">
+		<article>
+			<h2>Introduction</h2>
+			  <p>Sometimes we need a way to paginate our content. LazyLoad could be no convenient on some cases to reachs that even we might think on apply both techniques. <br/><br/>Here is an easy wayto paginate our content easily with a non endless posibilities to apply to our websites without be aware about how to structure the content. <br/><br/>
+
+				Just setting up fastly on each of your sections what you want to be paged, (yes, you can use more than one on the same page), either through the tags in html or calling explictly on a JS script, you will have your content well structured responsivness and prepared for any resolution or any resize on the page.<br/><br/>
+			</p>
+		</article>
+		<figure id="intro-example" class="center-example">
+			<h3 class="section-title">A little example...</h3>
+			<div class="example-container">
+				<div class="box-cont">
+					<div class="box-carousel">
+						<div class="box box1">
+							<div class="inner-box">
+								<div class="box-page">PAGE 1</div>
+							</div>
+						</div>
+						<div class="box box2">
+							<div class="inner-box">
+								<div class="box-page">PAGE 2</div>
+							</div>
+						</div>
+						<div class="box box3">
+							<div class="inner-box">
+								<div class="box-page">PAGE 3</div>
+							</div>
+						</div>
+						<div class="box box4">
+							<div class="inner-box">
+								<div class="box-page">PAGE 4</div>
+							</div>
+						</div>
+						<div class="box box5">
+							<div class="inner-box">
+								<div class="box-page">PAGE 5</div>
+							</div>
+						</div>
+						<div class="box box6">
+							<div class="inner-box">
+								<div class="box-page">PAGE 6</div>
+							</div>
+						</div>
+						<div class="box box7">
+							<div class="inner-box">
+								<div class="box-page">PAGE 7</div>
+							</div>
+						</div>
+						<div class="box box8">
+							<div class="inner-box">
+								<div class="box-page">PAGE 8</div>
+							</div>
+						</div>
+						<div class="box box9">
+							<div class="inner-box">
+								<div class="box-page">PAGE 9</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="c-paginator paginator-intro-example"></div>
+			</div>
+		</figure>
+	</section>
+
+	<!--DEMO-->
+	<section id="demo" class="demo">
+		<article>
+			<h2>Demo Project</h2>
+			<div class="cdn-cont">
+				<p>You can find some previews of the component through this document or in the demo component glossary page:</p>
+				<p><a href="https://www.jsbuenos.com/projects/front-end/paginator/demo">https://www.jsbuenos.com/projects/front-end/paginator/demo</a></p>
+			</div>
+		</article>
+	</section>
+
+	<!--Github-->
+	<section id="github" class="github">
+		<article>
+			<h2>Github Project</h2>
+			<div class="github-cont">
+				<p>The control version of the project has been realized through Git.</p>
+				<p>You can find the downloadable last project version, issues answered and more info on Github project page.</p>
+				<p><a href="https://github.com/jsbuenos/frontend-projects">https://github.com/jsbuenos/frontend-projects</a></p>
+			</div>
+		</article>
+	</section>
+
+	<!--CDN-->
+	<section id="cdn" class="cdn">
+		<article>
+			<h2>CDN</h2>
+			<div class="cdn-cont">
+				<p>There is still not a version stored on any CDN service. It will be available further.</p>
+			</div>
+		</article>
+	</section>
+
+	<!--PACKAGES-->
+	<section id="package-managers" class="package-managers">
+		<article>
+			<h2>Package Managers</h2>
+			<div class="package-bower-cont">
+				<h4 class="section-managers">BOWER</h4>
+				<div class="highlight highlight-source-shell">
+					<pre><span class="pl-c"># Bower</span><br>bower install --save slick-carousel</pre>
+				</div>
+			</div>
+
+			<div class="package-npm-cont">
+				<h4 class="section-managers">NPM</h4>
+				<div class="highlight highlight-source-shell">
+					<pre><span class="pl-c"># NPM</span><br>npm install slick-carousel</pre>
+				</div>
+			</div>
+
+			<div class="package-manual-cont">
+				<h4 class="section-managers">MANUAL</h4>
+				<div class="package-manual-wrapper">
+					<div class="manual-cont">
+						<a href="/download">Get version 1.0</a>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
+	<!--BROWSER SUPPORT-->
+	<section id="browser-support" class="browser-support">
+		<article>
+			<h2>Browser and Devices Support</h2>
+			<div class="browser-support-cont">
+				<div class="browser-support-wrapper">
+					<div class="browser-ie-cont">
+						<div class="icon"></div>
+						<span class="support">IE8+ (Edge incl.)</span>
+					</div>
+					<div class="browser-chrome-cont">
+						<div class="icon"></div>
+						<span class="support">Chrome 19+</span>
+					</div>
+					<div class="browser-firefox-cont">
+						<div class="icon"></div>
+						<span class="support">Firefox 3.5+</span>
+					</div>
+					<div class="browser-safari-cont">
+						<div class="icon"></div>
+						<span class="support">Safari 5.1+</span>
+					</div>
+					<div class="browser-opera-cont">
+						<div class="icon"></div>
+						<span class="support">Opera 12.1+</span>
+					</div>
+					<div class="browser-ios-cont">
+						<div class="icon"></div>
+						<span class="support">iOS 6+</span>
+					</div>
+					<div class="browser-android-cont">
+						<div class="icon"></div>
+						<span class="support">Android 4.0+</span>
+					</div>
+					<span class="stretch"></span>
+				</div>
+			</div>
+			<div class="browser-support-note">
+				<p>* Tested on that browsers ans devices. Probably minor versions are accepted too.</p>
+			</div>
+		</article>
+	</section>
+
+	<!--AUTHOR-->
+	<section id="author" class="author">
+		<article>
+			<h2>Author</h2>
+			<div class="author-cont">
+				<p> The script and all its features except 3rd-party dependencies have been developed by <a ui-sref="index">jsbuenos</a>.
+				</p>
+			</div>
+		</article>
+	</section>
+
+	<!--DEPENDENCIES-->
+	<section id="dependencies" class="dependencies">
+		<article>
+			<h2>Dependencies</h2>
+			<div class="dependencies-cont">
+				<p>jQuery 1.7</p>
+			</div>
+		</article>
+	</section>
+
+	<!--LICENSE-->
+	<section id="license" class="license">
+		<article>
+			<h2>License</h2>
+			<div class="license-cont">
+				<p>Copyright (c) 2016 Javier Sanchez (<a ui-sref="index">jsbuenos</a>).</p>
+				<p>Licensed under the MIT license.</p>
+			</div>
+		</article>
+	</section>
+
 </div>
 

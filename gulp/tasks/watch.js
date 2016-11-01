@@ -13,7 +13,7 @@ gulp.task('watch', [], function() {
     //gulp.watch(config.scripts.src, ['lint']);
 
     // Sass
-    gulp.watch(config.styles.src, ['styles']);
+    gulp.watch(config.watch, ['styles']);
 
     // Views
     //gulp.watch(config.views.src, browserSync.reload);
