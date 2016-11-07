@@ -51,6 +51,7 @@ angularRoutingApp.config( function($stateProvider, $urlRouterProvider, $location
         })
         .state("paginator", {
             url: "/paginator",
+            controller: 'mainController',
             views:{
                 "page":{
                      templateUrl: "pages/paginator.html"
@@ -74,4 +75,12 @@ angularRoutingApp.config( function($stateProvider, $urlRouterProvider, $location
 
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/");
+});
+
+angularRoutingApp.controller('mainController', function($scope, $location, $anchorScroll) {
+  debugger;
+  $scope.scrollTo = function(target) {
+    $location.hash(target);
+    $anchorScroll();
+  }
 });

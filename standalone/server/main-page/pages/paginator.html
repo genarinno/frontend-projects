@@ -7,106 +7,7 @@
 <script type="text/javascript"  src="js/paginator/page.js"></script>
 
 <div class="page page-paginator">
-
 	<h1 class="title1">Paginator</h1>
-	<!--USAGE MANUAL-->
-	<section id="usage-manual" class="usage-manual">
-		<article>
-			<h2>Usage Manual</h2>
-			<!-- [Basic]-->
-			<div class="basic-usage-cont">
-				<h3 class="basic-usage">Basic usage</h3>
-				<div class="basic-usage-desc-cont">
-					<p>The basic component is pretty easy to use initially, just need seconds to have it ready. There are some other different configurations available to setting up which needs a bit more of work, but it's not a big deal to manage with it and with the following guide you'll get it as easy as child's play.</p>
-					<p>As the example below, just insert the html div tag in your targeted container.</p>
-
-				</div>
-				<div class="highlight highlight-text-html-basic">
-					
-<pre><code class="html">&lt;html&gt;
-  &lt;head&gt;&lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- Other content on body --&gt;
-    &lt;div&gt;
-      &lt;!-- Content to be paginated or other stuff --&gt;
-      &lt;!-- Paginator cont --&gt;
-        &lt;div class="c-paginator style-1"&gt;&lt;/div&gt;
-      &lt;!-- --&gt;
-    &lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-				</div>
-				<div class="basic-usage-desc2-cont">
-					<p>And this will produce this:</p>
-				</div>
-				<div class="basic-usage-paginator-cont">
-					<div class="c-paginator style-1 basic-usage-paginator"></div>
-				</div>
-			</div>
-			<!-- [Styles]-->
-			<div class="styles-usage-cont">
-				<h3 class="styles-usage">Styles usage</h3>
-				<div class="styles-usage-desc-cont">
-					<p>To style your paginator component and its elements, you just apply some of those styles below modifying the class or injecting key parameters on data-params attribute:</p>
-				</div>
-
-				<!-- [Style 1]-->
-				<div class="styles-usage-style1-cont">
-					<h4 class="styles-usage-style1">Style 1 (Default)</h4>
-					<div class="highlight highlight-text-html-basic">
-<pre><code class="html"> &lt;div class="c-paginator"&gt;&lt;/div&gt;</code></pre>
-					</div>
-					<div class="styles-usage-style1-cont">
-						<div class="c-paginator"></div>
-					</div>
-				</div>
-
-				<!-- [Style 2]-->
-				<div class="styles-usage-style2-cont">
-					<h4 class="styles-usage-style2">Style 2 (Edifice)</h4>
-					<div class="highlight highlight-text-html-basic">
-<pre><code class="html"> &lt;div class="c-paginator style-2"&gt;&lt;/div&gt;</code></pre>
-					</div>
-					<div class="styles-usage-style2-cont">
-						<div class="c-paginator style-2"></div>
-					</div>
-				</div>
-
-				<!-- [Style 3]-->
-				<div class="styles-usage-style3-cont">
-					<h4 class="styles-usage-style3">Style 3 (T-Rex)</h4>
-					<div class="highlight highlight-text-html-basic">
-<pre><code class="html"> &lt;div class="c-paginator style-3"&gt;&lt;/div&gt;</code></pre>
-					</div>
-					<div class="styles-usage-style3-cont">
-						<div class="c-paginator style-3"></div>
-					</div>
-				</div>
-
-				<!-- [Style 4]-->
-				<div class="styles-usage-style4-cont">
-					<h4 class="styles-usage-style4">Style 4 (Oprah)</h4>
-					<div class="highlight highlight-text-html-basic">
-			<pre><code class="html"> &lt;div class="c-paginator style-4"&gt;&lt;/div&gt;</code></pre>
-					</div>
-					<div class="styles-usage-style4-cont">
-						<div class="c-paginator style-4"></div>
-					</div>
-				</div>
-
-				<!-- [Style 5]-->
-				<div class="styles-usage-style5-cont">
-					<h4 class="styles-usage-style5">Style 5 (Soap)</h4>
-					<div class="highlight highlight-text-html-basic">
-			<pre><code class="html"> &lt;div class="c-paginator style-5"&gt;&lt;/div&gt;</code></pre>
-					</div>
-					<div class="styles-usage-style4-cont">
-						<div class="c-paginator style-5"></div>
-					</div>
-				</div>
-			</div>
-		</article>
-	</section>
 	
 	<!--INTRO-->
 	<section id="intro" class="intro">
@@ -185,6 +86,414 @@
 		</article>
 	</section>
 
+	<!--USAGE MANUAL-->
+	<section id="usage-manual" class="usage-manual">
+		<article>
+			<h2>Usage Manual</h2>
+			<!-- [Basic]-->
+			<div class="basic-usage-cont">
+				<h3 class="basic-usage">Basic usage</h3>
+				<div class="basic-usage-desc-cont">
+					<p>The basic component is pretty easy to use initially, just need seconds to have it ready. There are some other different configurations available to setting up which needs a bit more of work, but it's not a big deal to manage with it and with the following guide you'll get it as easy as child's play.</p>
+					<p>As the example below, just insert the html div tag in your targeted container.</p>
+
+				</div>
+				<div class="highlight highlight-text-html-basic">
+					
+<pre class="highlight"><code class="html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;script type="text/javascript"  src="js/paginator/paginator.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"  src="js/paginator/page.js"&gt;&lt;/script>
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Other content on body --&gt;
+    &lt;div&gt;
+      &lt;!-- Content to be paginated or other stuff --&gt;
+      &lt;!-- Paginator cont --&gt;
+        &lt;div class="c-paginator style-1"&gt;&lt;/div&gt;
+      &lt;!-- --&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				</div>
+				<div class="basic-usage-desc2-cont">
+					<p>And this will produce this:</p>
+				</div>
+				<div class="basic-usage-paginator-cont">
+					<div class="c-paginator style-1 basic-usage-paginator"></div>
+				</div>
+				<div class="basic-usage-desc3-cont">
+					<p>Follow the instructions below to setting up the component. <br/>You have also an <a href="/demo">extended demo page</a> where take examples as reference.</p>
+				</div>
+			</div>
+			<!-- [Component usage]-->
+			<div class="component-usage-cont">
+				<h3 class="component-usage">Component usage</h3>
+				<div class="component-usage-desc-cont">
+					<p>They're two ways to setting up your paginator component. This ways could be mixed between on the same page.</p>
+					<p>A guide of <a href="#styles">styles</a> and <a href="#parameters">parameters</a> to setting up the component on each case is included those links within.</p>
+				</div>
+				<!-- [HTML ]-->
+				<div class="Component-usage-html-cont extra-margin-top">
+					<h4 class="Component-usage-html">Only HTML component</h4>
+					<div class="highlight highlight-text-html-basic">
+<pre class="highlight"><code class="html"> &lt;div class="c-paginator <span class="just-reference">[style-N]</span>" data-params="{<span class="just-reference">[option1:value1;option2:value2...]</span>}"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-html-cont">
+						<p>The component will be created once the HTML doucment will be entirely loaded besides the paginator.js script.
+						<p>This options don't allow you to control the paginator after it had have been created.<br/>It's suitable to simple scenarios where, in example, the number of pages won't are change.</p>
+
+					</div>
+				</div>
+
+				<!-- [Javascript]-->
+				<div class="Component-usage-js-cont extra-margin-top">
+					<h4 class="Component-usage-js">HTML & Javascript component</h4>
+					<div class="highlight highlight-text-html-basic">
+					HTML
+<pre><code class="html"> 
+&lt;!-- Here the posible data-options will be overwritten by the JS parameters --&gt;
+&lt;div id="paginator-1" class="c-paginator <span class="just-reference">[style-N]</span>" data-isAsync="true"&gt;&lt;/div&gt;
+</code></pre>
+					</div>
+					<div class="highlight highlight-text-html-basic">
+					Javascript
+<pre><code class="javascript">//Use the jquery selector
+var paginator1 = $("#paginator-1").paginator({<span class="just-reference">[option1:value1;option2:value2...]</span>})</code></pre>
+					</div>
+				</div>
+			</div>
+			<!-- [Styles]-->
+			<div id="styles" class="styles-usage-cont">
+				<h3 class="styles-usage">Styles usage</h3>
+				<div class="styles-usage-desc-cont">
+					<p>To style your paginator component and its elements, you just apply some of those styles below modifying the class or injecting key parameters on data-params attribute:</p>
+				</div>
+
+				<!-- [Style 1]-->
+				<div class="styles-usage-style1-cont extra-margin-top">
+					<h4 class="styles-usage-style1">Style 1 (Default)</h4>
+					<div class="highlight highlight-text-html-basic">
+<pre><code class="html"> &lt;div class="c-paginator"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style1-cont">
+						<div class="c-paginator"></div>
+					</div>
+				</div>
+
+				<!-- [Style 2]-->
+				<div class="styles-usage-style2-cont extra-margin-top">
+					<h4 class="styles-usage-style2">Style 2 (Edifice)</h4>
+					<div class="highlight highlight-text-html-basic">
+<pre><code class="html"> &lt;div class="c-paginator style-2"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style2-cont">
+						<div class="c-paginator style-2"></div>
+					</div>
+				</div>
+
+				<!-- [Style 3]-->
+				<div class="styles-usage-style3-cont extra-margin-top">
+					<h4 class="styles-usage-style3">Style 3 (T-Rex)</h4>
+					<div class="highlight highlight-text-html-basic">
+<pre><code class="html"> &lt;div class="c-paginator style-3"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style3-cont extra-margin-top">
+						<div class="c-paginator style-3"></div>
+					</div>
+				</div>
+
+				<!-- [Style 4]-->
+				<div class="styles-usage-style4-cont extra-margin-top">
+					<h4 class="styles-usage-style4">Style 4 (Oprah)</h4>
+					<div class="highlight highlight-text-html-basic">
+			<pre><code class="html"> &lt;div class="c-paginator style-4"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style4-cont">
+						<div class="c-paginator style-4"></div>
+					</div>
+				</div>
+
+				<!-- [Style 5]-->
+				<div class="styles-usage-style5-cont extra-margin-top">
+					<h4 class="styles-usage-style5">Style 5 (Soap)</h4>
+					<div class="highlight highlight-text-html-basic">
+			<pre><code class="html"> &lt;div class="c-paginator style-5"&gt;&lt;/div&gt;</code></pre>
+					</div>
+					<div class="styles-usage-style4-cont">
+						<div class="c-paginator style-5"></div>
+					</div>
+				</div>
+
+				<!-- [Other styles]-->
+				<div class="styles-usage-others-cont extra-margin-top">
+					<h4 class="styles-usage-others">Other styles</h4>
+					
+					<div class="styles-usage-others-cont">
+						<p>Other styles could be achieved combining the class of the Paginator and the <a href="/">options</a> included on the creation of the component. To exmperiment with more combinations, please take at the extended <a href="/">examples page</a>.</p>
+					</div>
+				</div>
+
+				<!-- [Custom styles]-->
+				<div class="styles-usage-custom-cont extra-margin-top">
+					<h4 class="styles-usage-custom">Custom styles</h4>
+					
+					<div class="styles-usage-custom-cont">
+						<p>To produce your own styles, please check it out the <b>css/paginator.css</b> or <b>scss/paginator.scss</b> files included on the project.</br>Creation of the new styles become a straightforward and fast task checking out the examples included on the self code.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- [Parameters]-->
+			<div id="parameters" class="parameters-usage-cont">
+				<h3 class="parameters-usage">Parameters</h3>
+				<div class="parameters-usage-desc-cont">
+					<p>There is the list of parameters to be included on the html attribute or to be used in the Javascript contructor first and unique argument:</p>
+				</div>
+				<div class="parameters-usage-table-cont">
+					<div class="parameters-usage-table-inner extra-margin-top">
+						<h4 class="parameters-usage-table-cont-isAsync">data-isAsync</h4>
+						<table class="multi-table">
+							<tr>
+								<td>
+									<table class="atrribute">
+										<thead>
+											<tr><th>Name</th><th>Scope</th><th>Type</th><th>Default</th><th>Description</th></tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>data-isAsync</td>
+												<td>HTML</td>
+												<td>boolean</td>
+												<td>false</td>
+												<td>Determines if the c-paginator will start inmediatly or wait to be started by JS after.</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="parameters-usage-table-inner extra-margin-top">
+						<h4 class="parameters-usage-table-cont-isAsync">data-params | params</h4>
+						<table class="multi-table">
+							<tr>
+								<td>
+									<table class="atrribute">
+										<thead>
+											<tr><th>Name</th><th>Scope</th><th>Type</th><th>Default</th><th>Description</th></tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>data-params | params</td>
+												<td>HTML | JS</td>
+												<td>object</td>
+												<td>---</td>
+												<td>Setting up the parameters of the paginator</td>
+											</tr>
+										</tbody>
+									</table>
+									<table class="properties">
+										<caption style="background-color: #F0F0F0"></caption>
+										<thead>
+											<tr><th>Option</th><th>Type</th><th>Default</th><th>Description</th></tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>nPages</td>
+												<td>int</td>
+												<td>20</td>
+												<td>Number of pages of the paginator
+												<br/>
+													<span class="exclude">* This parameter could be overrided by <b>nItemsPage</b> and <b>nItemsTotal</b>.</span></td>
+											</tr>
+											<tr>
+												<td>nPagesShown</td>
+												<td>int</td>
+												<td>7</td>
+												<td>Number of pages shown of the paginator.</td>
+											</tr>
+											<tr>
+												<td>nItemsPage</td>
+												<td>int</td>
+												<td>5</td>
+												<td>Number of items whose compose each page.
+													<br/>
+													<span class="exclude">* This parameter beside <b>nItemsTotal</b> override the <b>nPages</b> paramteer.</span>
+												</td>
+											</tr>
+											<tr>
+												<td>nItemsTotal</td>
+												<td>int</td>
+												<td>100</td>
+												<td>Number of items whose compose each page.
+													<br/>
+													<span class="exclude">* This parameter beside <b>nItemsPage</b> override the <b>nPages</b> parameter.</span>
+												</td>
+											</tr>
+											<tr class="settingsTheme">
+												<td>settingsTheme</td>
+												<td>object</td>
+												<td>---</td>
+												<td>Object containing properties related to the behavior of the paginator.</td>
+											</tr>
+											<tr>
+												<td>allResponsive</td>
+												<td>boolean</td>
+												<td>false</td>
+												<td>Put the controls on the same container as page links</td>
+											</tr>
+											<tr>
+												<td>triggerEvent</td>
+												<td>boolean</td>
+												<td>true</td>
+												<td>Paginator triggers "onPageChange" event.</td>
+											</tr>
+											<tr>
+												<td>collapseAllCntrl</td>
+												<td>boolean</td>
+												<td>true</td>
+												<td>Collaspse controls when they're not necessary.</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- [API]-->
+			<div id="api" class="api-usage-cont">
+				<h3 class="api-usage">API</h3>
+				<div class="api-usage-desc-cont">
+					<p>Here is the available methods to be used when the initialization has been done through JS:</p>
+				</div>
+
+				<!-- Constructor -->
+				<div class="api-usage-desc-cont-inner extra-margin-top">
+					<h4 class="api-usage-constructor">Constructor</h4>
+					<div class="api-usage-constructor-cont">
+						<p>Init the paginator with the corresponding paramsand return the instance of the object.</p>
+					</div>
+					<div class="api-usage-constructor-code highlight">
+						<pre><code class="javascript">$("#paginator-1").paginator(params);</code></pre>
+					</div>
+					<div class="api-usage-constructor-table">
+						<table class="properties">
+							<thead>
+								<tr><th>Option</th><th>Type</th><th>Default</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>params</td>
+									<td>object</td>
+									<td>{}</td>
+									<td>Parameters to init the paginator. See <a href="#params"></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+
+				<!-- goLink -->
+				<div class="api-usage-desc-cont-inner extra-margin-top">
+					<h4 class="api-usage-constructor">goLink</h4>
+					<div class="api-usage-constructor-cont">
+						<p>Force externally the paginator to go to the desired page.</p>
+					</div>
+					<div class="api-usage-constructor-code highlight">
+						<pre><code class="javascript">$("#paginator-1").paginator("goLink", indexLink, *indexOldLink);</code></pre>
+					</div>
+					<div class="api-usage-golink-table">
+						<table class="properties">
+							<thead>
+								<tr><th>Option</th><th>Type</th><th>Default</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>"goLink"</td>
+									<td>string</td>
+									<td>"goLink"</td>
+									<td>Indicates explictly the method who goes to be called.</td>
+								</tr>
+								<tr>
+									<td>indexLink</td>
+									<td>int</td>
+									<td></td>
+									<td>Index of the new page.</td>
+								</tr>
+								<tr>
+									<td>*indexOldLink</td>
+									<td>int</td>
+									<td>undefined</td>
+									<td>Refers the index of the old page. (The performance will be fast)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- remove -->
+				<div class="api-usage-desc-cont-inner extra-margin-top">
+					<h4 class="api-usage-constructor">remove</h4>
+					<div class="api-usage-constructor-cont">
+						<p>Remove the paginator instance and the content of the container within.</p>
+					</div>
+					<div class="api-usage-constructor-code highlight">
+						<pre><code class="javascript">$("#paginator-1").paginator("remove");</code></pre>
+					</div>
+					<div class="api-usage-golink-table">
+						<table class="properties">
+							<thead>
+								<tr><th>Option</th><th>Type</th><th>Default</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>"remove"</td>
+									<td>string</td>
+									<td>"remove"</td>
+									<td>Indicates explictly the method who goes to be called.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- [Events]-->
+			<div id="events" class="events-usage-cont">
+				<h3 class="events-usage">Events</h3>
+				<div class="events-usage-desc-cont">
+					<p>All the events will bre triggered from the DOM element who inits the paginator.</p>
+				</div>
+				<div class="events-usage-table-cont extra-margin-top">
+					<table class="events">
+						<thead>
+							<tr><th>Event</th><th>Description</th><th>Data</th></tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>change</td>
+								<td>Triggered when a new page has been selected.</td>
+								<td>No.</td>
+							</tr>
+							<tr>
+								<td>onPageChange</td>
+								<td>Triggered when a new page has been selected. But retrieve the newPage on data.</br><span class="exclude">This event is disabled when params.settingsTheme.triggerEvent is false.</span></td>
+								<td>
+									<p>newPage: The index of the new page selected.</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+		</article>
+	</section>
+
 	<!--Github-->
 	<section id="github" class="github">
 		<article>
@@ -214,14 +523,14 @@
 			<div class="package-bower-cont">
 				<h4 class="section-managers">BOWER</h4>
 				<div class="highlight highlight-source-shell">
-					<pre><span class="pl-c"># Bower</span><br>bower install --save slick-carousel</pre>
+					<pre class="highlight"><span class="pl-c"># Bower</span><br>bower install --save slick-carousel</pre>
 				</div>
 			</div>
 
 			<div class="package-npm-cont">
 				<h4 class="section-managers">NPM</h4>
 				<div class="highlight highlight-source-shell">
-					<pre><span class="pl-c"># NPM</span><br>npm install slick-carousel</pre>
+					<pre class="highlight"><span class="pl-c"># NPM</span><br>npm install slick-carousel</pre>
 				</div>
 			</div>
 

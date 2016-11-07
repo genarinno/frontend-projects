@@ -8151,7 +8151,7 @@ section {
 }
 
 article {
-  font-size: 18px;
+  font-size: 16px;
   font-family: Ubuntu,Lato,sans-serif;
   width: 80%;
   margin: 0 auto;
@@ -8180,12 +8180,24 @@ section.package-managers article > div, section.browser-support article > div {
   margin-top: 25px;
 }
 
+section article > div {
+  margin-top: 25px;
+}
+
 section a {
   color: #FF6B09;
 }
 
 section a:hover {
   color: #FF6B09;
+}
+
+section article .extra-margin-top {
+  margin-top: 30px;
+}
+
+section article .extra-margin-top:last-child {
+  margin-bottom: 35px;
 }
 
 #main {
@@ -8294,7 +8306,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #bdbac1;
+  background-color: #c2c5c6;
 }
 
 #intro-example .box.box2 .inner-box {
@@ -8302,7 +8314,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #dae1e2;
+  background-color: #d0d2d5;
 }
 
 #intro-example .box.box3 .inner-box {
@@ -8310,7 +8322,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #b4b5b8;
+  background-color: #c4c5c5;
 }
 
 #intro-example .box.box4 .inner-box {
@@ -8318,7 +8330,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #b9b4b9;
+  background-color: #bebec0;
 }
 
 #intro-example .box.box5 .inner-box {
@@ -8326,7 +8338,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #dadadb;
+  background-color: #bbbcbf;
 }
 
 #intro-example .box.box6 .inner-box {
@@ -8334,7 +8346,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #bbc3bd;
+  background-color: #c5bfbd;
 }
 
 #intro-example .box.box7 .inner-box {
@@ -8342,7 +8354,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #ced3d0;
+  background-color: #dbd4d3;
 }
 
 #intro-example .box.box8 .inner-box {
@@ -8350,7 +8362,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #b4b5b7;
+  background-color: #cecacc;
 }
 
 #intro-example .box.box9 .inner-box {
@@ -8358,7 +8370,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #d8d4da;
+  background-color: #bbbdc3;
 }
 
 #intro-example .box.box10 .inner-box {
@@ -8366,7 +8378,7 @@ section a:hover {
 					$green: random(256)-1;
 					$blue: random(256)-1;
 			       	background-color: rgba($red, $green, $blue, 0.8);*/
-  background-color: #b8bcbc;
+  background-color: #c5c9c0;
 }
 
 #intro-example .box .inner-box {
@@ -8393,6 +8405,143 @@ section a:hover {
 .highlight code, .highlight kbd, .highlight pre, .highlight samp {
   font-family: 'Source Code Pro', monospace;
   font-size: 16px;
+}
+
+.highlight pre {
+  background-color: white;
+}
+
+.highlight pre .just-reference span {
+  color: #FF6B09 !important;
+  font-style: italic !important;
+}
+
+.highlight .hljs {
+  background-color: white;
+}
+
+table {
+  width: 100%;
+  overflow: auto;
+  font-size: 14px;
+  margin: 16px 0;
+}
+
+table caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: black;
+  text-align: left;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ffba66;
+}
+
+table table {
+  margin: 4px;
+}
+
+table thead th {
+  text-align: left;
+  padding: 5px 0;
+  padding-left: 10px;
+}
+
+table tr {
+  background-color: #fff;
+  border: 2px solid #ffba66;
+  vertical-align: top;
+}
+
+table tr.settingsTheme ~ tr td {
+  border: 1px dashed #ffba66;
+}
+
+table tr.settingsTheme ~ tr td:first-child {
+  text-align: center;
+}
+
+table td {
+  padding: 6px 13px;
+  border: 1px solid #ffba66;
+  vertical-align: top;
+}
+
+table th.scope {
+  text-align: center;
+  padding: 10px 0;
+  font-style: italic;
+}
+
+table .exclude {
+  font-size: 12px;
+}
+
+table.events td:first-child {
+  width: 200px;
+  font-style: italic;
+}
+
+table.events td:nth-child(2) {
+  width: 100px;
+}
+
+table.events td:nth-child(3) {
+  width: 100px;
+}
+
+table.atrribute td:first-child {
+  width: 200px;
+  font-style: italic;
+}
+
+table.atrribute td:nth-child(2) {
+  width: 100px;
+}
+
+table.atrribute td:nth-child(3) {
+  width: 120px;
+}
+
+table.atrribute td:nth-child(4) {
+  width: 100px;
+}
+
+table.properties td:first-child {
+  width: 160px;
+  font-style: italic;
+}
+
+table.properties td:nth-child(2) {
+  width: 150px;
+}
+
+table.properties td:nth-child(3) {
+  width: 150px;
+}
+
+table.multi-table > tbody > tr {
+  border: 0px;
+}
+
+table.multi-table > tbody > tr > td {
+  padding: 0px;
+  border: 0px;
+}
+
+table.multi-table > tbody > tr > td > table {
+  margin: 0px;
+}
+
+table.multi-table caption {
+  border: 0px;
+  border-left: 2px solid #ffba66;
+  border-right: 2px solid #ffba66;
+}
+
+#api h4, #parameters h4 {
+  color: black;
+  font-style: italic;
 }
 
 .package-manual-cont a {
@@ -8523,12 +8672,18 @@ section a:hover {
   font-size: 14px;
 }
 
-.styles-usage-cont > div {
+.styles-usage-cont > div,
+.component-usage-cont > div {
   margin-bottom: 20px;
 }
 
-.styles-usage-cont > div h4 {
+.styles-usage-cont > div h4,
+.component-usage-cont > div h4 {
   font-style: italic;
+}
+
+.c-paginator {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=demo.css.map */
