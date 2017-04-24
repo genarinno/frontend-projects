@@ -49,6 +49,12 @@ function defineInitIndexes(nPages, current, maxPagesShown) {
 /*--------------------------------------------------
 :: Paginator private functions (with context)
 --------------------------------------------------*/
+function checkUseZen(conditions){
+    if(conditions){
+        this.$main.addClass("use-zen");
+    }
+}
+
 function manageBlockControls(settings){
     if(!settings.collapseAllCntrl){
         return true;
@@ -152,11 +158,15 @@ function manageControls(newPage, nPages, nPagesShown) {
     $(".js-next-action", this.$nav).parent().css("display", (newPage !== nPages) ? "inline-block" : "none");
     
     var newRange = getShownRange.call(this);
-    if (newRange) {
+    
+    if (newRange || this.settings.useZen) {
+        var showFirstAction = this.settings.useZen ? (newPage !== 1) : (newRange[0] !== 1),
+            showLastAction = this.settings.useZen ? (newPage !== nPages)  : (newRange[1] < nPages);
+
         //3º Manage left control (First)
-        $(".js-first-action", this.$nav).parent().css("display", (newRange[0] !== 1) ? "inline-block" : "none");
+        $(".js-first-action", this.$nav).parent().css("display", showFirstAction ? "inline-block" : "none");
         //4º Manage right control (Last)
-        $(".js-last-action", this.$nav).parent().css("display", (newRange[1] < nPages) ? "inline-block" : "none");    
+        $(".js-last-action", this.$nav).parent().css("display", showLastAction ? "inline-block" : "none");    
     }
     
     //5º Manage left block controls
@@ -185,7 +195,8 @@ var updateLayout = function(newPage, oldPage) {
 
 //Manage action click on 'prev'
 function prevPage($oldPageLink) {
-    var oldPage = parseInt($oldPageLink.attr("data-index"), 10),
+    //var oldPage = parseInt($oldPageLink.attr("data-index"), 10),
+    var oldPage = this.current,
         layoutPagesMod;        
 
     $oldPageLink.removeClass("is-current-page");
@@ -200,7 +211,8 @@ function prevPage($oldPageLink) {
 
 //Manage action click on 'next'
 function nextPage($oldPageLink) {
-    var oldPage = parseInt($oldPageLink.attr("data-index"), 10),
+    //var oldPage = parseInt($oldPageLink.attr("data-index"), 10),
+    var oldPage = this.current,
         layoutPagesMod;
 
     $oldPageLink.removeClass("is-current-page");
@@ -291,7 +303,7 @@ function clickActionLink($newPageLink) {
                 var newPage = manageNewAction.call(this, $newPageLink, $oldPageLink, action);
 
                 if (newPage) {
-
+                    this.current = newPage;
                     window.tempModuleLoadObj = window.tempModuleLoadObj || {};
                     window.tempModuleLoadObj.event = "component-page-change";
 
@@ -321,7 +333,10 @@ function createPageLinks(nPages, current, maxPagesShown) {
         $newLink,
         $selectors;
 
-    //2º Define Start/End current visible indexes
+    //2º Get the delimiter defined by the user, if it exists
+    var delimiter = _this.settings.delimiter || " of ";
+
+    //3º Define Start/End current visible indexes
     var indexes = defineInitIndexes(nPages, current, maxPagesShown),
         initIndex = indexes.init,
         endIndex = indexes.end,
@@ -335,54 +350,56 @@ function createPageLinks(nPages, current, maxPagesShown) {
         maxPagesShown = nPages;
     }
 
-    // 3º.- Removes the previous content if exists
+    //4º.- Removes the previous content if exists
     this.remove();
 
-    // 4º.- Insert main containers
-    this.$counter = $("<div class='c-paginator__counter'><span class='c-paginator__counter-current'></span> of <span class='c-paginator__counter-total'></span></div>").appendTo(this.$main);
+    //5º.- Insert main containers
+    this.$counter = $("<div class='c-paginator__counter'><span class='c-paginator__counter-current'></span>"+delimiter+"<span class='c-paginator__counter-total'></span></div>").appendTo(this.$main);
     this.$nav = $("<div class='c-paginator__navigation'></div>").appendTo(this.$main);
 
     //$prevControls = $(".c-paginator__prev-controls", $nav);
     
-    //5º.- Insert Prev Controls
+    //6º.- Insert Prev Controls
     $prevControls = $("<div class='c-paginator__prev-controls'></div>").prependTo(this.$nav);
     $prevControls.prepend("<div class='c-paginator__page-selector' " + (((nPages === 1) || (current === 1)) ? "style='display:none'" : true) + "><a class='c-paginator__page-selector-link js-prev-action' href='#''></a></div>");
     $prevControls.prepend("<div class='c-paginator__page-selector' " + ((initIndex === 1) ? "style='display:none'": true) + "><a class='c-paginator__page-selector-link js-first-action' href='#'></a></div>");
     manageBlockControls.call($prevControls, this.settings);
 
-    //6º.- Insert Link Pages
-    currentLinkIndex = 1;
-    while (currentIndex <= endIndex) {
-        $newLink = $("<div class='c-paginator__page-selector'><a class='c-paginator__page-selector-link js-page-action' href='#' data-link-index='" + 
-            currentLinkIndex + "' data-index='" + currentIndex + "'>" + currentIndex + "</a></div>")
-            .appendTo(this.$nav);
+    //7º.- Insert Link Pages
+    if(!!!this.settings.useZen){
+        currentLinkIndex = 1;
+        while (currentIndex <= endIndex) {
+            $newLink = $("<div class='c-paginator__page-selector'><a class='c-paginator__page-selector-link js-page-action' href='#' data-link-index='" + 
+                currentLinkIndex + "' data-index='" + currentIndex + "'>" + currentIndex + "</a></div>")
+                .appendTo(this.$nav);
 
-        if (currentIndex === initIndex) {
-            $newLink.children(".js-page-action").addClass("is-first-link");
+            if (currentIndex === initIndex) {
+                $newLink.children(".js-page-action").addClass("is-first-link");
+            }
+
+            if (currentIndex === endIndex) {
+                $newLink.children(".js-page-action").addClass("is-last-link");
+            }
+
+            currentIndex++;
+            currentLinkIndex++;
         }
-
-        if (currentIndex === endIndex) {
-            $newLink.children(".js-page-action").addClass("is-last-link");
-        }
-
-        currentIndex++;
-        currentLinkIndex++;
     }
 
-    //7º.- Mark current link Page
+    //8º.- Mark current link Page
     $(".js-page-action[data-index='" + current + "']", this.$nav).addClass("is-current-page");
 
-    //8º.- Insert Next Controls
+    //9º.- Insert Next Controls
     //$(".c-paginator__next-controls", $nav);
     $nextControls = $("<div class='c-paginator__next-controls'></div>").appendTo(this.$nav);
     $nextControls.append("<div class='c-paginator__page-selector' " + (((nPages === 1) || (current === nPages)) ? "style='display:none'" : "") + "><a class='c-paginator__page-selector-link js-next-action' href='#'></a></div>");
     $nextControls.append("<div class='c-paginator__page-selector' " + (((nPages === 1) || (nPages <= maxPagesShown) || (nPages === endIndex)) ? "style='display:none'" : "") + "><a class='c-paginator__page-selector-link js-last-action' href='#'></a></div>");
     manageBlockControls.call($nextControls, this.settings);
 
-    //9º.- Update page counter
+    //10º.- Update page counter
     updatePageCounter.call(this, current, nPages);
 
-    //10º.- Bind the event to all nodes
+    //11º.- Bind the event to all nodes
    this.$nav.on("click",".c-paginator__page-selector-link", function(event) {
         event.preventDefault();
         var $newPageLink = $(event.currentTarget, _this.$nav);
@@ -403,7 +420,7 @@ function createPageLinks(nPages, current, maxPagesShown) {
 
    $prevControls.nextAll(".c-paginator__page-selector").wrapAll("<div class='c-paginator__page-selectors'></div>");
 
-   //11º Special behaviour to have controls (prev and next) with the page selectors on the same grid (c-paginator__[prev|next]-controls) disappear
+   //12º Special behaviour to have controls (prev and next) with the page selectors on the same grid (c-paginator__[prev|next]-controls) disappear
    if(!!this.settings.allResponsive){
         $selectors = $(".c-paginator__page-selectors", this.$nav); 
         //With float to right, put the last child at first
@@ -418,20 +435,21 @@ function createPageLinks(nPages, current, maxPagesShown) {
 /*--------------------------------------------------
 :: Paginator Class
 --------------------------------------------------*/
-function Paginator($parent, _nItemsPage, _nItemsTotal, _nPagesShown, current, settingsTheme) {
+function Paginator($parent, params) {
     //Data vars
     this.id = idCounter; 
     idCounter++;
 
     this.nItemsPage = 5,
-    this.nItemsTotal = 45,//50 //100
+    this.nItemsTotal = 50,//50 //100
     this.nPages = Math.ceil(this.nItemsTotal / this.nItemsPage),
-    this.nPagesShown = 7, //10 //Min 3
+    this.nPagesShown = 10, //10 //Min 3
     this.settings = {
         allResponsive: false,
         triggerEvent: true,
         collapseAllCntrl:true
     },
+    this.current = 1,
     
     //jQuery selectors
     this.$main = this.$main || null,
@@ -441,11 +459,11 @@ function Paginator($parent, _nItemsPage, _nItemsTotal, _nPagesShown, current, se
     //init function
     var init = function() //Init
     {
-        this.nItemsTotal = _nItemsTotal || this.nItemsTotal;
-        this.nItemsPage = _nItemsPage || this.nItemsPage;
-        this.nPagesShown = _nPagesShown || this.nPagesShown;
-        this.nPages = Math.ceil(this.nItemsTotal / this.nItemsPage);
-        $.extend(this.settings, settingsTheme);
+        this.nItemsTotal = params.nItemsTotal || this.nItemsTotal;
+        this.nItemsPage = params.nItemsPage || this.nItemsPage;
+        this.nPagesShown = params.nPagesShown || this.nPagesShown;
+        this.nPages = params.nPages || Math.ceil(this.nItemsTotal / this.nItemsPage);
+        $.extend(this.settings, params.settingsTheme);
 
         if (this.nPagesShown > this.nPages) {
             this.nPagesShown = this.nPages;
@@ -455,21 +473,24 @@ function Paginator($parent, _nItemsPage, _nItemsTotal, _nPagesShown, current, se
     //main function
     var main = function() //Init the Paginator Asynchronously
     {
-        current = typeof current === "number" ? current : 1;
-        settingsTheme = typeof settingsTheme === "object" ? settingsTheme : {};  
-
-        init.call(this, _nItemsPage, _nItemsTotal, _nPagesShown, settingsTheme);
+        this.current = typeof params.current === "number" ? params.current : 1;
+        params.settingsTheme = typeof params.settingsTheme === "object" ? params.settingsTheme : {};  
+        init.call(this, params);
         this.$main = this.$main || (($parent instanceof $) ? $parent.find(pagClass) : $(pagClass));
 
         if (this.nPagesShown > 1) {
-            createPageLinks.call(this, this.nPages, current, this.nPagesShown);
+            if(params.settingsTheme && params.settingsTheme.useZen){
+                checkUseZen.call(this, true);
+            }
+            
+            createPageLinks.call(this, this.nPages, this.current, this.nPagesShown);
         }
         else {
             this.remove();
         }
     };
 
-    main.call(this);
+    main.call(this, params);
 
     return this;
 }
@@ -523,11 +544,24 @@ $(document).ready(function() {
 
         //Create the instance of each paginator
         $pagSync.each(function() {
-            var Prebound = Object.create(Paginator.prototype || Object.prototype);
+            var $paginator = $(this), 
+                Prebound = Object.create(Paginator.prototype || Object.prototype),
+                params = $paginator.data("params") || {};
             
-            Prebound.$main = $(this);
-            asyncPaginators["paginator_" + idCounter] = Paginator.call(Prebound) || Prebound;
+            Prebound.$main = $paginator;
+
+            asyncPaginators["paginator_" + idCounter] = Paginator.call(Prebound, null, params) || Prebound;
         });
     }
 
 });
+
+//Create jQuery method
+(function( $ ){
+    $.fn.paginator = function() {
+        var args = arguments,
+            paginator = new Paginator($(this).parent(), args[0]);
+
+        return paginator;
+    }; 
+})( jQuery );

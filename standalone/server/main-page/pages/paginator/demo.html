@@ -1,0 +1,164 @@
+<link type="text/css" href="css/paginator/paginator.css" rel="stylesheet">
+<script type="text/javascript">
+	window.JSBUENOS = {};
+	window.JSBUENOS.page = "paginator.home";
+</script>
+<script type="text/javascript"  src="js/paginator/paginator.js"></script>
+<script type="text/javascript"  src="js/paginator/page.js"></script>
+
+<div class="page page-paginator">
+	<h1 class="title1">Paginator Examples</h1>
+	
+	<!--DEMOS INTRO-->
+	<!--INTRO-->
+	<section id="intro" class="intro">
+		<article>
+			<h2>Introduction</h2>
+			  <p>Here are some demos related to Paginator component.</br>You can find further information accesing to the <a href="https://www.jsbuenos.com/projects/front-end/paginator">Paginator official documentation.</a></p>
+			</p>
+		</article>
+	</section>
+
+	<!--DEMO-->
+	<section id="demo" class="demo">
+		<article>
+			<h2>Examples</h2>
+			<div class="demo-examples">
+				<div class="demo-examples-config">
+					<h3>Configuration</h3>
+					
+					<!-- [Config 1 [5 pages]]-->
+					<div class="config-1-cont extra-margin-top">
+						<h4 class="config-1-title">Config 1</h4>
+						<div class="config-1-desc">
+							<p>Paginator with 5 total pages and 4 pages shown.</p>
+						</div>
+						<div class="highlight highlight-text-html-basic">
+							<pre><code class="html"> &lt;div class="c-paginator" data-params='{"nPages":5, "nPagesShown":4}'&gt;</code></pre>
+						</div>
+						<div class="config-1-cont-outer">
+							<div class="config-1-cont">
+								<div class="c-paginator" data-params='{"nPages":5, "nPagesShown":4}'></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- [Config 2 JS [5 pages]]-->
+					<div class="config-2-cont extra-margin-top">
+						<h4 class="config-2-title">Config 2</h4>
+						<div class="config-2-desc">
+							<p>Paginator activated by JS with 5 total pages and 4 pages shown.</p>
+						</div>
+						<div class="highlight highlight-text-html-basic">
+							HTML
+							<pre><code class="html"> &lt;div class="c-paginator config-2"&gt;</div></code></pre>
+						</div>
+						<div class="highlight highlight-text-html-basic">
+							Javascript
+							<pre><code class="javascript">$(".c-paginator.config-2").paginator({"nPages":10, "nPagesShown":4});</code></pre>
+						</div>
+						<div class="config-2-cont-outer">
+							<div class="config-2-cont">
+								<div class="c-paginator config-2"></div>
+								<script type="text/javascript">
+									$(".c-paginator.config-2").paginator({"nPages":8, "nPagesShown":5});
+								</script>
+							</div>
+						</div>
+					</div>
+
+					<!-- [Config 3 [6 pages]]-->
+					<div class="config-3-cont extra-margin-top">
+						<h4 class="config-3-title">Config 3</h4>
+						<div class="config-3-desc">
+							<p>Paginator with 6 total pages and 3 pages shown. "de" replaces "of" as counter delimiter.</p>
+						</div>
+						<div class="highlight highlight-text-html-basic">
+							<pre><code class="html"> &lt;div class="c-paginator" data-params='{"nPages":10, "nPagesShown":4, "settingsTheme": {"delimiter": " de "}}'&gt;</code></pre>
+						</div>
+						<div class="config-3-cont-outer">
+							<div class="config-3-cont">
+								<div class="c-paginator" data-params='{"nPages":6, "nPagesShown":3, "settingsTheme": {"delimiter": " de "}}'></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- [Config 4 [10 pages Zen activated]]-->
+					<div class="config-4-cont extra-margin-top">
+						<h4 class="config-4-title">Config 4</h4>
+						<div class="config-4-desc">
+							<p>Paginator with 10 total and Zen mode activated.</p>
+						</div>
+						<div class="highlight highlight-text-html-basic">
+							<pre><code class="html"> &lt;div class="c-paginator" data-params='{"nPages":10, "nPagesShown":4, "settingsTheme": {"useZen": true}}'&gt;</code></pre>
+						</div>
+						<div class="config-4-cont-outer">
+							<div class="config-4-cont">
+								<div class="c-paginator" data-params='{"nPages":10, "settingsTheme": {"useZen": true}}'></div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="demo-examples-styles">
+					<h3>Styles</h3>
+
+					<!-- [Style 1]-->
+					<div class="styles-usage-style1-cont extra-margin-top">
+						<h4 class="styles-usage-style1">Style 1 (Default)</h4>
+						<div class="highlight highlight-text-html-basic">
+	<pre><code class="html"> &lt;div class="c-paginator"&gt;&lt;/div&gt;</code></pre>
+						</div>
+						<div class="styles-usage-style1-cont">
+							<div class="c-paginator"></div>
+						</div>
+					</div>
+
+					<!-- [Style 2]-->
+					<div class="styles-usage-style2-cont extra-margin-top">
+						<h4 class="styles-usage-style2">Style 2 (Edifice)</h4>
+						<div class="highlight highlight-text-html-basic">
+	<pre><code class="html"> &lt;div class="c-paginator style-2"&gt;&lt;/div&gt;</code></pre>
+						</div>
+						<div class="styles-usage-style2-cont">
+							<div class="c-paginator style-2"></div>
+						</div>
+					</div>
+
+					<!-- [Style 3]-->
+					<div class="styles-usage-style3-cont extra-margin-top">
+						<h4 class="styles-usage-style3">Style 3 (T-Rex)</h4>
+						<div class="highlight highlight-text-html-basic">
+	<pre><code class="html"> &lt;div class="c-paginator style-3"&gt;&lt;/div&gt;</code></pre>
+						</div>
+						<div class="styles-usage-style3-cont extra-margin-top">
+							<div class="c-paginator style-3"></div>
+						</div>
+					</div>
+
+					<!-- [Style 4]-->
+					<div class="styles-usage-style4-cont extra-margin-top">
+						<h4 class="styles-usage-style4">Style 4 (Oprah)</h4>
+						<div class="highlight highlight-text-html-basic">
+				<pre><code class="html"> &lt;div class="c-paginator style-4"&gt;&lt;/div&gt;</code></pre>
+						</div>
+						<div class="styles-usage-style4-cont">
+							<div class="c-paginator style-4"></div>
+						</div>
+					</div>
+
+					<!-- [Style 5]-->
+					<div class="styles-usage-style5-cont extra-margin-top">
+						<h4 class="styles-usage-style5">Style 5 (Soap)</h4>
+						<div class="highlight highlight-text-html-basic">
+				<pre><code class="html"> &lt;div class="c-paginator style-5"&gt;&lt;/div&gt;</code></pre>
+						</div>
+						<div class="styles-usage-style4-cont">
+							<div class="c-paginator style-5"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+</div>

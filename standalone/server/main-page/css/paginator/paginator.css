@@ -243,4 +243,38 @@
   top: -2px;
 }
 
+.c-paginator.use-zen .c-paginator__counter {
+  line-height: 32px;
+  vertical-align: top;
+  margin: 0 15px;
+}
+
+.c-paginator.use-zen .c-paginator__prev-controls {
+  float: left;
+}
+
+.c-paginator.use-zen .c-paginator__prev-controls .js-first-action {
+  float: left;
+}
+
+.c-paginator.use-zen .c-paginator__prev-controls .js-prev-action {
+  float: right;
+}
+
+.c-paginator.use-zen .c-paginator__next-controls {
+  float: right;
+}
+
+.c-paginator.use-zen .c-paginator__next-controls .js-next-action {
+  float: left;
+}
+
+.c-paginator.use-zen .c-paginator__next-controls .js-last-action {
+  float: right;
+}
+
+.c-paginator.use-zen .c-paginator__counter {
+  display: inline-block;
+}
+
 /*# sourceMappingURL=paginator.css.map */
